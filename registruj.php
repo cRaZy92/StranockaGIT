@@ -2,9 +2,9 @@
 // vloženie udajov o pouzivatelovi do tb_osoba
     $registruj_udaje = mysqli_query($db_spojenie, "INSERT INTO
     tb_osoba
-    (meno, priezvisko, rodne_cislo, adresa, telefon, email, dat_registracie, fk_mesto)
+    (meno, priezvisko, pohlavie,  adresa, telefon, email, dat_registracie)
 VALUES
-    ('$meno', '$priezvisko', '$rodne_cislo', '$adresa', '$telefon', '$email', NOW(), '$fk_mesto')");
+    ('Neuvedené', 'Neuvedené', 'iné',  'Neuvedené', 'Neuvedené', '$email', NOW())");
 
 // vybratie pk_osoba z tb_osoba pre vlozenie login informacii
  $vysledok_pk = mysqli_query($db_spojenie, "SELECT 
@@ -12,9 +12,9 @@ VALUES
  FROM
  tb_osoba
  WHERE
-    rodne_cislo ='$rodne_cislo'");
+    email ='$email'");
 
-$hashed_password = password_hash($heslo, PASSWORD_DEFAULT);
+$hashed_password = password_hash($heslo, PASSWORD_DEFAULT); //hash hesla - zabezpečenie
 
 $riadok = mysqli_fetch_array($vysledok_pk);
     $pk_osoba = $riadok['pk_osoba'];

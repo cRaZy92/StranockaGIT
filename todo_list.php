@@ -1,12 +1,8 @@
-<h1>Čo najskôr</h1>
+    <h1>Čo najskôr</h1>
     <ol>
 
     <li>
     <p>OBSAH!!!</p>
-    </li>
-
-    <li>
-    <p>Validacia mailu</p>
     </li>
 
     <li>
@@ -18,10 +14,6 @@
     </li>
 
     <li>
-    <p>Nastavenie pohlavia v profile</p>
-    </li>
-
-    <li>
     <p>Komentovanie obsahovych stranok - blog</p>
     </li>
 
@@ -29,10 +21,7 @@
     <li>
     <p>Validacia emailu pomocou zaslaneho mailu</p>
     </li>
-
-    <li>
-    <p>Zabezpečenie stránky - encryption of passwords</p>
-    </li>
+    
 
     <h3>To má ešte času a času</h3>
 
@@ -45,14 +34,9 @@
     </li>
 
     <h3>Dokončené</h3>
-    
-    <li>
+    <p class="done">Akože "fórum"</p>
+    <p class="done">Nastavenie pohlavia v profile</p>
     <p class="done">Zabezpečenie stránky - encryption of passwords</p>
-    </li>
-    
-    <li>
+    <p class="done">Validacia mailu</p>
     <p class="done">Vyplnovanie osobnych udajov dodatocne v profile</p>
-    </li>
-    
-    
     </ol>

@@ -17,7 +17,7 @@ if(isset($_POST['ok'])){
         $priezvisko = $riadok['priezvisko'];
         $email = $riadok['email'];
 
-$db_zanechaj_odkaz = mysqli_query($db_spojenie,"INSERT INTO db_odkazy (datum, meno, priezvisko, email, zapis) VALUES (NOW(),'$meno','$priezvisko','$email','$sprava')");
+$db_zanechaj_odkaz = mysqli_query($db_spojenie,"INSERT INTO tb_odkazy (datum, id_uzivatela, email, zapis) VALUES (NOW(),'$id','$email','$sprava')");
 
 if (!$db_zanechaj_odkaz) {
     die ('Chyba zaslania príkazu SQL, pri odoslani zápisu do tabuľky.'  . mysqli_error($db_spojenie));

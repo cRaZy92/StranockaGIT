@@ -1,6 +1,6 @@
 <?php
 session_start();
-$titulok="Prihlaseny";
+$titulok="Profil použivateľa";
 include "html_hlavicka.php";
 include "body_start.php";
 
@@ -8,7 +8,7 @@ require "db_pripojenie.php";
 
         $id = $_SESSION['pk_uzivatel'];
 
-        $vysledok = mysqli_query($db_spojenie, "SELECT meno,priezvisko,rodne_cislo,adresa,telefon,dat_registracie,email,fk_mesto FROM tb_osoba WHERE pk_osoba='$id'");
+        $vysledok = mysqli_query($db_spojenie, "SELECT meno,priezvisko,pohlavie,adresa,telefon,dat_registracie,email,fk_mesto FROM tb_osoba WHERE pk_osoba='$id'");
         $riadok = mysqli_fetch_array($vysledok);
         $pk_mesto = $riadok['fk_mesto'];
         
@@ -20,7 +20,10 @@ require "db_pripojenie.php";
         echo "<br>Meno: " . $riadok['meno'];
         echo "<br>";
         echo "Priezvisko: " . $riadok['priezvisko'];
-        echo "<br>Adresa: " . $riadok['adresa'];
+        echo "<br>";
+        echo "Pohlavie: ". $riadok['pohlavie'];
+        echo "<br>";
+        echo "Adresa: " . $riadok['adresa'];
         echo "<br>";
         echo "Telefon: " . $riadok['telefon'];
         echo "<br>";
@@ -30,13 +33,13 @@ require "db_pripojenie.php";
         echo "<br>";
         echo "PSČ mesta: " . $riadok_mesto['psc'];
         echo "<br>";
+
         echo "<br>";
         echo "Účet vytvorený: " . $riadok['dat_registracie'];
         echo "<hr>";
         echo "<a href='profil_edit.php'>Upaviť profil</a>";
 
     if ($db_spojenie) mysqli_close($db_spojenie);
-
 
 include "body_end.php";
 include "html_pata.php";

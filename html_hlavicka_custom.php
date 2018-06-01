@@ -22,19 +22,20 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+  </head>
+  <body ng-app="myNoteApp" ng-controller="myNoteCtrl">
   <style>
-.done{
-    text-decoration: line-through;
-    color:rgb(54, 216, 45);
+  .panel-body  {
+    word-break:break-all;
+}
+.otazka {
+    word-break:break-all;
 }
 .second{
  background-color: rgb(255,255,153);
 width: auto;
 }
-    </style>
-  </head>
-  <body>
-
+</style>
 <br><br><br><br><br><br>
     <table width="90%" align="center" border="2" bordercolor="#003399" cellspacing="2">
       <tr id="nadpis">

@@ -17,6 +17,12 @@
         <a class="nav-link" href="db_odkaz.php">Zanechanie odkazu</a>
       </li> 
       <li class="nav-item">
+        <a class="nav-link" href="db_forum.php">Fórum</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="db_ucivo.php">Učivo</a>
+      </li>  
+      <li class="nav-item">
         <a class="nav-link" href="db_odhlasenie.php">Odhlásenie</a>
       </li>  
 

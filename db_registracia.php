@@ -58,7 +58,6 @@ if (isset($_POST['ok'])){
     
     if($nick_valid == true){
     
-    
     $sql_mesta = "SELECT 
         pk_mesto,
         mesto,
@@ -108,10 +107,10 @@ if (!$registruj_login && !$registruj_udaje) {   //kontrola pribehu zapisu do dat
     die ('Chyba zaslania príkazu SQL pri registracii'  . mysqli_error($db_spojenie));
 }
 else {  //uspešná registrácia
-   // echo 'Uspešne registrovany, mozes sa prihlasit ';   
+   echo 'Uspešne registrovany, mozes sa prihlasit ';   
    // echo '<div class="loader"></div>';
    // header('Refresh: 3; URL=db_prihlasenie.php');   //prepoji na /db_prihlasenie.php
-        echo '<script> location.replace("db_prihlasenie.php"); </script>';
+       // echo '<script> location.replace("db_prihlasenie.php"); </script>';
 }
 }
 else // ak sa mesto už nachádza v databaze
@@ -132,11 +131,11 @@ if (!$registruj_login && !$registruj_udaje) {   //kontrola pribehu zapisu do dat
     die ('Chyba zaslania príkazu SQL pri registracii'  . mysqli_error($db_spojenie));
 }
 else {  //uspešná registrácia
-//    echo 'Uspešne registrovany'; 
+  echo 'Uspešne registrovany'; 
    // echo '<div class="loader"></div>';
     //header('Refresh: 2; URL=db_prihlasenie.php'); //prepoji na /db_prihlasenie.php
 
-        echo '<script> location.replace("db_prihlasenie.php"); </script>';
+      //  echo '<script> location.replace("db_prihlasenie.php"); </script>';
 }
     }
 

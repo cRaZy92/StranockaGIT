@@ -6,7 +6,6 @@ font-size:13px;
 
 #nadpis{
 background-color:   #AFAFAF;
-
 }
 
 h1{
@@ -33,6 +32,11 @@ width: auto;
 p{
 text-align: justify;
 padding: 0px 15 px;
+}
+
+.done{
+    text-decoration: line-through;
+    color:rgb(75, 244, 66);
 }
 
 

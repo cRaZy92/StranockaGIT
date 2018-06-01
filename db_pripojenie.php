@@ -1,5 +1,5 @@
 <?php
-$testing =true;
+$testing = false;
 if($testing != true){
 $db_ip = 'fdb21.awardspace.net';
 $db_login = '2722184_stranocka';

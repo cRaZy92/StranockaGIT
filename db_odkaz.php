@@ -10,7 +10,7 @@ if(isset($_POST['ok'])){
 
         $sprava = $_POST['sprava'];
         $id = $_SESSION['pk_uzivatel'];
-        
+
     $vysledok = mysqli_query($db_spojenie, "SELECT meno,priezvisko,email FROM tb_osoba WHERE pk_osoba='$id'");
         $riadok = mysqli_fetch_array($vysledok);
         $meno = $riadok['meno'];

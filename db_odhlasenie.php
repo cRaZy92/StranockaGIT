@@ -8,7 +8,6 @@ if($_SESSION['signed_in']==true){
 }
 else{
 echo "Nie si prihlásený, ak si frajer, tak sa prihlás!";
-
 }
 
 ?>

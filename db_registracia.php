@@ -8,14 +8,6 @@ require "form_registracia.php";
 if (isset($_POST['ok'])){
 
    require "db_pripojenie.php";
-  //  $db_spojenie = mysqli_connect('$db_ip', '$db_login', '', '$db_name', '$db_port');
-    
-    if (!$db_spojenie) {    
-        echo 'Vzniknutá chyba: ' . mysqli_connect_error();
-        die ('Pripojenie k databáze sa nepodarilo');
-        }
-    
-    mysqli_query($db_spojenie, "SET NAMES 'utf8'");
 
     $nick = $_POST['nick'];         //*
     $heslo = $_POST['heslo'];       //*
@@ -33,11 +25,11 @@ if (isset($_POST['ok'])){
 
     if($heslo == $heslo_z){
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $emailErr = "Invalid email format"; 
+            echo "Invalid email format"; 
           }
           else{
 
-        $sql_nick = "SELECT 
+    $sql_nick = "SELECT 
         nick
     FROM
         tb_uzivatel
@@ -92,7 +84,7 @@ if(mysqli_num_rows($vysledok) == 0)
         die ('Chyba zaslania príkazu SQL, pri odoslani mesta do tabuľky.'  . mysqli_error($db_spojenie));
     }
     else
-    echo "mesto vložené do tabuľky. <br>";
+    echo "Mesto vložené do tabuľky. <br>";
 
     $vysledok = mysqli_query($db_spojenie, $sql_mesta);
 
@@ -110,7 +102,7 @@ else {  //uspešná registrácia
    echo 'Uspešne registrovany, mozes sa prihlasit ';   
    // echo '<div class="loader"></div>';
    // header('Refresh: 3; URL=db_prihlasenie.php');   //prepoji na /db_prihlasenie.php
-       // echo '<script> location.replace("db_prihlasenie.php"); </script>';
+    echo '<script> location.replace("db_prihlasenie.php"); </script>';
 }
 }
 else // ak sa mesto už nachádza v databaze
@@ -135,7 +127,7 @@ else {  //uspešná registrácia
    // echo '<div class="loader"></div>';
     //header('Refresh: 2; URL=db_prihlasenie.php'); //prepoji na /db_prihlasenie.php
 
-      //  echo '<script> location.replace("db_prihlasenie.php"); </script>';
+    echo '<script> location.replace("db_prihlasenie.php"); </script>';
 }
     }
 

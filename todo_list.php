@@ -1,4 +1,4 @@
-    <h1>Čo najskôr</h1>
+<h1>Čo najskôr</h1>
     <ol>
 
     <li>
@@ -45,7 +45,14 @@
     </li>
 
     <h3>Dokončené</h3>
+    
+    <li>
+    <p class="done">Zabezpečenie stránky - encryption of passwords</p>
+    </li>
+    
     <li>
     <p class="done">Vyplnovanie osobnych udajov dodatocne v profile</p>
     </li>
+    
+    
     </ol>

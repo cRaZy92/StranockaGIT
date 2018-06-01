@@ -14,14 +14,17 @@ VALUES
  WHERE
     rodne_cislo ='$rodne_cislo'");
 
+$hashed_password = password_hash($heslo, PASSWORD_DEFAULT);
+
 $riadok = mysqli_fetch_array($vysledok_pk);
     $pk_osoba = $riadok['pk_osoba'];
-    //$pk_osoba = 1;    // pre prvy zapis do databazy
+    if(!$pk_osoba)
+    $pk_osoba = 1;
     
 // vloženie login informacii do tb_uzivatel
     $registruj_login = mysqli_query($db_spojenie, "INSERT INTO
     tb_uzivatel 
     (pk_uzivatel,nick, heslo, last_login)
 VALUES
-    ('$pk_osoba','$nick', '$heslo', '0000-00-00 00:00:00')");
+    ('$pk_osoba','$nick', '$hashed_password', '0000-00-00 00:00:00')");
 ?>

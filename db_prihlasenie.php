@@ -1,28 +1,24 @@
 <?php
 session_start();
-$titulok="SQL Prihlasenie";
+$titulok="Prihlásenie";
 include "html_hlavicka.php";
 include "body_start.php";
 require "form_prihlasenie.php";
 
 if (isset($_POST['ok'])){
     require "db_pripojenie.php";
-
-  // $db_spojenie = mysqli_connect('127.0.0.1', 'root', '', 'db_lolwtf', '3306');
        
     $nick = $_POST['nick'];
-    $heslo = $_POST['heslo'];
+    $password = $_POST['heslo'];
      
-
     $sql = "SELECT 
         pk_uzivatel,
-        nick
+        nick,
+        heslo
     FROM
         tb_uzivatel
     WHERE
-        nick ='$nick'
-    AND
-        heslo = '$heslo'";
+        nick ='$nick'";
      
 $vysledok = mysqli_query($db_spojenie, $sql);
 if(!$vysledok)
@@ -38,13 +34,14 @@ echo 'Zle meno alebo heslo. Skús to znova, alebo sa <a href="db_registracia.php
 }
 else
 {
+    $riadok = mysqli_fetch_array($vysledok);
+    $hashed_password = $riadok['heslo'];
+    if(password_verify($password, $hashed_password) == true) {
 
-
-$riadok = mysqli_fetch_array($vysledok);
     $_SESSION['pk_uzivatel']    = $riadok['pk_uzivatel'];
     $_SESSION['nick']    = $riadok['nick'];
-
-   $id = $riadok['pk_uzivatel'];
+    $_SESSION['signed_in'] = true;
+    $id = $riadok['pk_uzivatel'];
 
 $sql_update_last = "UPDATE
 tb_uzivatel
@@ -53,22 +50,27 @@ last_login = NOW()
 WHERE
 pk_uzivatel = '$id'";
 
+
 $last_login = mysqli_query($db_spojenie, $sql_update_last);
 
 if(!$last_login)
 {
-    echo "error nejde to";
+    echo "ERROR: Nepodarilo sa zapísať čas posledného loginu!";
 
 }
  
-$_SESSION['signed_in'] = true;
+
 echo 'Vitaj, ' . $_SESSION['nick'];
 echo '<br>';   
 echo 'Uspešne prihlaseny.';   
-sleep(3);
 echo '<script> location.replace("index.php"); </script>';
 //    header('Refresh: 2; URL=index.php');
-   
+}
+else{
+echo "Nesprávne heslo!";
+//print_r($password);
+//print_r($hashed_password);
+}
 }
 
 

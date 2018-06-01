@@ -1,5 +1,5 @@
 <?php
-$testing = false;
+$testing = true;
 if($testing != true){
 $db_ip = 'fdb21.awardspace.net';
 $db_login = '2722184_stranocka';
@@ -11,7 +11,7 @@ else{
 $db_ip = '127.0.0.1';
 $db_login = 'root';
 $db_pass = '';
-$db_name = 'db_lolwtf';
+$db_name = 'db_newlol';
 $db_port = '3306';  
 }
 $db_spojenie = mysqli_connect($db_ip,$db_login, $db_pass, $db_name,$db_port);

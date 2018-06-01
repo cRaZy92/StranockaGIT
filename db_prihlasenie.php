@@ -2,13 +2,14 @@
 session_start();
 $titulok="SQL Prihlasenie";
 include "html_hlavicka.php";
+include "menu1.php";
+include "body_start.php";
 require "form_prihlasenie.php";
 
 if (isset($_POST['ok'])){
-    //require "db_pripojenie.php";
+    require "db_pripojenie.php";
 
-
-    $db_spojenie = mysqli_connect('127.0.0.1', 'root', '', 'db_lolwtf', '3306');
+  // $db_spojenie = mysqli_connect('127.0.0.1', 'root', '', 'db_lolwtf', '3306');
     
     if (!$db_spojenie) {    
         echo 'Vzniknutá chyba: ' . mysqli_connect_error();
@@ -21,11 +22,6 @@ if (isset($_POST['ok'])){
     $nick = $_POST['nick'];
     $heslo = $_POST['heslo'];
      
-   /* $sql_prikaz = "SELECT pk_uzivatel,nick,heslo FROM tb_uzivatel WHERE nick='$nick' AND heslo='$heslo'";
-    $vysledok = mysqli_query($db_spojenie, $sql_prikaz);
-    $riadok = mysqli_fetch_array($vysledok);
-    
-*/
 
     $sql = "SELECT 
         pk_uzivatel,
@@ -48,7 +44,7 @@ else
 {
 if(mysqli_num_rows($vysledok) == 0)
 {
-echo 'Zle meno alebo heslo.';
+echo 'Zle meno alebo heslo. Skús to znova, alebo sa <a href="db_registracia.php">registruj</a>.';
 }
 else
 {
@@ -57,8 +53,11 @@ $_SESSION['signed_in'] = true;
     $riadok = mysqli_fetch_array($vysledok);
     $_SESSION['pk_uzivatel']    = $riadok['pk_uzivatel'];
     $_SESSION['nick']    = $riadok['nick'];
- 
-echo 'Vitaj, ' . $_SESSION['nick'] . '. <a href="profil.php">Profil</a>.';
+echo 'Vitaj, ' . $_SESSION['nick']; //  . '. <a href="profil.php">Profil</a>.'
+echo '<br>';   
+echo 'Uspešne prihlaseny.';   
+    echo '<div class="loader"></div>';
+    header('Refresh: 5; URL=profil.php');
 /*
 }
 
@@ -94,11 +93,8 @@ echo 'Vitaj, ' . $_SESSION['nick'] . '. <a href="profil.php">Profil</a>.';
 }
 
 }
+if($db_spojenie) mysqli_close($db_spojenie);
 }
-   // if ($db_spojenie) mysqli_close($db_spojenie);
-
-
-
-
+include "body_end.php";
 include "html_pata.php";
 ?>

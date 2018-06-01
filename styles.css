@@ -1,0 +1,37 @@
+/* CSS Document */
+body{
+background-color: #CFCFCF;
+font-size:13px;
+}
+
+#nadpis{
+background-color:   #AFAFAF;
+
+}
+
+h1{
+padding-top: 20px;
+text-align: center;
+color: #0015FF;
+}
+
+.first{
+background-color: rgb(102,153,255);
+width: 30%;
+}
+li{
+line-height:2;
+color: rgb(0,102,51);
+font-weight: bold;
+}
+
+.second{
+ background-color: rgb(255,255,153);
+width: auto;
+}
+
+p{
+text-align: justify;
+padding: 0px 15 px;
+}
+

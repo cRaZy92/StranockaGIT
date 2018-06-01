@@ -2,6 +2,8 @@
 session_start();
 $titulok="Prihlaseny";
 include "html_hlavicka.php";
+include "menu2.php";
+include "body_start.php";
 
 //require "db_pripojenie.php";    
 
@@ -38,7 +40,6 @@ include "html_hlavicka.php";
     if ($db_spojenie) mysqli_close($db_spojenie);
 
 
-
-
+include "body_end.php";
 include "html_pata.php";
 ?>

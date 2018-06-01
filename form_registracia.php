@@ -9,9 +9,9 @@
     <legend>Osobne udaje</legend>
         <p>Meno: <input type="text" name="meno" required></p>
         <p>Priezvisko: <input type="text" name="priezvisko" required></p>
-        <p>Rodne cislo: <input type="text" name="rodne_cislo" required></p>
+        <p>Rodné číslo: <input type="text" name="rodne_cislo" required></p>
         <p>Adresa: <input type="text" name="adresa" required></p>
-        <p>Telefonne cislo: <input type="text" name="telefon" required></p>
+        <p>Telefónne číslo: <input type="text" name="telefon" required></p>
         <p>Email: <input type="text" name="email" required></p>
         <p>Mesto: <input type="text" name="mesto" required></p>
         <p>Mesto PSČ: <input type="text" name="psc" required></p>

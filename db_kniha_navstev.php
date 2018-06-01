@@ -2,7 +2,6 @@
 session_start();
 $titulok="Kniha návštev";
 include "html_hlavicka.php";
-include "menu1.php";
 include "body_start.php";
 include "form_kniha_navstev.php";
 
@@ -22,8 +21,10 @@ $meno = $_POST['meno'];
 $email = $_POST['email'];
 $sprava = $_POST['sprava'];
 
+
+
 // $registruj_navstevu = "INSERT INTO datum, meno, email, zapis FROM kniha_navsteve VALUES (NOW,'$meno','$email','sprava')";
-$db_navsteva = mysqli_query($db_spojenie,"INSERT INTO datum, meno, email, zapis FROM kniha_navstev VALUES (NOW,'$meno','$email','$sprava')");
+$db_navsteva = mysqli_query($db_spojenie,"INSERT INTO kniha_navstev (datum, meno, email, zapis) VALUES (NOW(),'$meno','$email','$sprava')");
 
 if (!$db_navsteva) {
     die ('Chyba zaslania príkazu SQL, pri odoslani zápisu do tabuľky.'  . mysqli_error($db_spojenie));

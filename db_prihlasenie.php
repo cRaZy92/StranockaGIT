@@ -2,7 +2,6 @@
 session_start();
 $titulok="SQL Prihlasenie";
 include "html_hlavicka.php";
-include "menu1.php";
 include "body_start.php";
 require "form_prihlasenie.php";
 
@@ -10,23 +9,14 @@ if (isset($_POST['ok'])){
     require "db_pripojenie.php";
 
   // $db_spojenie = mysqli_connect('127.0.0.1', 'root', '', 'db_lolwtf', '3306');
-    
-    if (!$db_spojenie) {    
-        echo 'Vzniknutá chyba: ' . mysqli_connect_error();
-        die ('Pripojenie sa nepodarilo');
-        }
-    
-    
-        mysqli_query($db_spojenie, "SET NAMES 'utf8'");
-
+       
     $nick = $_POST['nick'];
     $heslo = $_POST['heslo'];
      
 
     $sql = "SELECT 
         pk_uzivatel,
-        nick,
-        heslo
+        nick
     FROM
         tb_uzivatel
     WHERE
@@ -49,48 +39,36 @@ echo 'Zle meno alebo heslo. Skús to znova, alebo sa <a href="db_registracia.php
 else
 {
 $_SESSION['signed_in'] = true;
- 
-    $riadok = mysqli_fetch_array($vysledok);
+
+$riadok = mysqli_fetch_array($vysledok);
     $_SESSION['pk_uzivatel']    = $riadok['pk_uzivatel'];
     $_SESSION['nick']    = $riadok['nick'];
-echo 'Vitaj, ' . $_SESSION['nick']; //  . '. <a href="profil.php">Profil</a>.'
+
+   $id = $riadok['pk_uzivatel'];
+
+$sql_update_last = "UPDATE
+tb_uzivatel
+SET 
+last_login = NOW()
+WHERE
+pk_uzivatel = '$id'";
+
+$last_login = mysqli_query($db_spojenie, $sql_update_last);
+
+if(!$last_login)
+{
+    echo "error nejde to";
+
+}
+ 
+
+echo 'Vitaj, ' . $_SESSION['nick'];
 echo '<br>';   
 echo 'Uspešne prihlaseny.';   
-    echo '<div class="loader"></div>';
-    header('Refresh: 5; URL=profil.php');
-/*
-}
-
-
-
-
-
-    if($heslo == $riadok['heslo']) {
-        $id_pouzivatela=$riadok['pk_uzivatel'];
-        //echo "Vitaj číslo $id_pouzivatela";
-
-
-
-
-        //header('Location: profil.php'.$_GET['previouspage']);
-       header('location: profiltest.php');
-        //echo "<a href='profil.php'>Zobrazit profil</a>";
-
-       // include "profil.php";
-        die;
-    }
-    
-    else{
-       echo "Nesprávne meno alebo heslo";
-    }
-
-
-    if (!$vysledok) {
-        die ('Chyba zaslania príkazu SQL'  . mysqli_error($db_spojenie));
+    header('Refresh: 2; URL=index_.php');
    
-    }
-*/
 }
+
 
 }
 if($db_spojenie) mysqli_close($db_spojenie);

@@ -2,7 +2,6 @@
 session_start();
 $titulok="SQL Registracia";
 include "html_hlavicka.php";
-include "menu1.php";
 include "body_start.php";
 require "form_registracia.php";
 
@@ -18,21 +17,25 @@ if (isset($_POST['ok'])){
     
     mysqli_query($db_spojenie, "SET NAMES 'utf8'");
 
-    $nick = $_POST['nick'];
-    $heslo = $_POST['heslo'];
-    $heslo_z = $_POST['heslo_z'];
-    $meno = $_POST['meno'];
-    $priezvisko = $_POST['priezvisko'];
-    $rodne_cislo = $_POST['rodne_cislo'];
+    $nick = $_POST['nick'];         //*
+    $heslo = $_POST['heslo'];       //*
+    $heslo_z = $_POST['heslo_z'];   //*
+    $meno = $_POST['meno'];         //*
+    $priezvisko = $_POST['priezvisko'];//*
+    $rodne_cislo = $_POST['rodne_cislo'];//*
     $adresa = $_POST['adresa'];
     $telefon = $_POST['telefon'];
-    $email = $_POST['email'];
-    $date = date("Y-m-d");
+    $email = $_POST['email'];       //*
+  //  $date = date("Y-m-d");
     $mesto = $_POST['mesto'];
     $psc = $_POST['psc'];
 
-
     if($heslo == $heslo_z){
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $emailErr = "Invalid email format"; 
+          }
+          else{
+
         $sql_nick = "SELECT 
         nick
     FROM
@@ -106,7 +109,7 @@ if (!$registruj_login && !$registruj_udaje) {   //kontrola pribehu zapisu do dat
 else {  //uspešná registrácia
     echo 'Uspešne registrovany, mozes sa prihlasit ';   
     echo '<div class="loader"></div>';
-    header('Refresh: 5; URL=db_prihlasenie.php');   //prepoji na /db_prihlasenie.php
+    header('Refresh: 3; URL=db_prihlasenie.php');   //prepoji na /db_prihlasenie.php
 }
 }
 else // ak sa mesto už nachádza v databaze
@@ -129,7 +132,7 @@ if (!$registruj_login && !$registruj_udaje) {   //kontrola pribehu zapisu do dat
 else {  //uspešná registrácia
     echo 'Uspešne registrovany'; 
     echo '<div class="loader"></div>';
-    header('Refresh: 5; URL=db_prihlasenie.php'); //prepoji na /db_prihlasenie.php
+    header('Refresh: 2; URL=db_prihlasenie.php'); //prepoji na /db_prihlasenie.php
 }
     }
 
@@ -138,6 +141,7 @@ if ($db_spojenie) mysqli_close($db_spojenie);   //odpojenie z databazy
     }
     else    //kontrola nicku - ak uz existuje
         echo "Nick uz existuje, zvol si iny!";
+}
 }
 
 else    //kontrola zhody hesla - ak sa nezhoduju

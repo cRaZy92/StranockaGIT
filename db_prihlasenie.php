@@ -38,7 +38,7 @@ echo 'Zle meno alebo heslo. Skús to znova, alebo sa <a href="db_registracia.php
 }
 else
 {
-$_SESSION['signed_in'] = true;
+
 
 $riadok = mysqli_fetch_array($vysledok);
     $_SESSION['pk_uzivatel']    = $riadok['pk_uzivatel'];
@@ -61,10 +61,11 @@ if(!$last_login)
 
 }
  
-
+$_SESSION['signed_in'] = true;
 echo 'Vitaj, ' . $_SESSION['nick'];
 echo '<br>';   
 echo 'Uspešne prihlaseny.';   
+sleep(3);
 echo '<script> location.replace("index.php"); </script>';
 //    header('Refresh: 2; URL=index.php');
    

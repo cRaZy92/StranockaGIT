@@ -1,7 +1,7 @@
 <?php
 session_start();
 if($_SESSION['signed_in']==true){
-  $_SESSION['signed_in']=false;
+  session_destroy();
 
     //header('Refresh: 1; URL=index.php');
     echo '<script> location.replace("index.php"); </script>';

@@ -14,7 +14,7 @@
         <a class="nav-link" href="profil.php">Profil</a>
       </li> 
       <li class="nav-item">
-        <a class="nav-link" href="db_kniha_navstev.php">Kniha návštev</a>
+        <a class="nav-link" href="db_odkaz.php">Zanechanie odkazu</a>
       </li> 
       <li class="nav-item">
         <a class="nav-link" href="db_odhlasenie.php">Odhlásenie</a>

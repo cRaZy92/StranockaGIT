@@ -65,7 +65,8 @@ if(!$last_login)
 echo 'Vitaj, ' . $_SESSION['nick'];
 echo '<br>';   
 echo 'Uspešne prihlaseny.';   
-    header('Refresh: 2; URL=index_.php');
+echo '<script> location.replace("index.php"); </script>';
+//    header('Refresh: 2; URL=index.php');
    
 }
 

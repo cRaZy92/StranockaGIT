@@ -20,15 +20,16 @@ if (isset($_POST['ok'])){
     $nick = $_POST['nick'];         //*
     $heslo = $_POST['heslo'];       //*
     $heslo_z = $_POST['heslo_z'];   //*
-    $meno = $_POST['meno'];         //*
-    $priezvisko = $_POST['priezvisko'];//*
+    $meno = $_POST['meno'];         
+    $priezvisko = $_POST['priezvisko'];
     $rodne_cislo = $_POST['rodne_cislo'];//*
     $adresa = $_POST['adresa'];
     $telefon = $_POST['telefon'];
     $email = $_POST['email'];       //*
-  //  $date = date("Y-m-d");
     $mesto = $_POST['mesto'];
     $psc = $_POST['psc'];
+
+    
 
     if($heslo == $heslo_z){
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -107,32 +108,35 @@ if (!$registruj_login && !$registruj_udaje) {   //kontrola pribehu zapisu do dat
     die ('Chyba zaslania príkazu SQL pri registracii'  . mysqli_error($db_spojenie));
 }
 else {  //uspešná registrácia
-    echo 'Uspešne registrovany, mozes sa prihlasit ';   
-    echo '<div class="loader"></div>';
-    header('Refresh: 3; URL=db_prihlasenie.php');   //prepoji na /db_prihlasenie.php
+   // echo 'Uspešne registrovany, mozes sa prihlasit ';   
+   // echo '<div class="loader"></div>';
+   // header('Refresh: 3; URL=db_prihlasenie.php');   //prepoji na /db_prihlasenie.php
+        echo '<script> location.replace("db_prihlasenie.php"); </script>';
 }
 }
 else // ak sa mesto už nachádza v databaze
 {
 
     $riadok = mysqli_fetch_array($vysledok);
-    if($psc == $riadok['psc'])    //skontroluje ci sa psc mesta zhoduje s psc vlozeneho osobou
-    {
+  //if($psc == $riadok['psc'])    //skontroluje ci sa psc mesta zhoduje s psc vlozeneho osobou
+  //  {
         $fk_mesto = $riadok['pk_mesto'];
-    }
+ /*   }
     else{
         echo "zadali ste spravne PSČ?";
     }
-
+*/
     require_once "registruj.php";
 
 if (!$registruj_login && !$registruj_udaje) {   //kontrola pribehu zapisu do databazy
     die ('Chyba zaslania príkazu SQL pri registracii'  . mysqli_error($db_spojenie));
 }
 else {  //uspešná registrácia
-    echo 'Uspešne registrovany'; 
-    echo '<div class="loader"></div>';
-    header('Refresh: 2; URL=db_prihlasenie.php'); //prepoji na /db_prihlasenie.php
+//    echo 'Uspešne registrovany'; 
+   // echo '<div class="loader"></div>';
+    //header('Refresh: 2; URL=db_prihlasenie.php'); //prepoji na /db_prihlasenie.php
+
+        echo '<script> location.replace("db_prihlasenie.php"); </script>';
 }
     }
 

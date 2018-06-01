@@ -98,7 +98,8 @@ if(!$uprav_udaje)
     {
         echo "error nejde to";
     }
-    header('Location: profil.php');
+    echo '<script> location.replace("profil.php"); </script>';
+    //header('Location: profil.php');
 }
 include "body_end.php";
 include "html_pata.php";

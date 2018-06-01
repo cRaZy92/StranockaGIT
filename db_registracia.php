@@ -18,6 +18,8 @@ if (isset($_POST['ok'])){
     mysqli_query($db_spojenie, "SET NAMES 'utf8'");
 
 
+
+
     $nick = $_POST['nick'];
     $heslo = $_POST['heslo'];
     $heslo_z = $_POST['heslo_z'];
@@ -32,11 +34,31 @@ if (isset($_POST['ok'])){
     $psc = $_POST['psc'];
 
 
+        
+    
+
 
     if($heslo == $heslo_z){
-
-      //  $objekt_vysledkov = mysqli_query($db_spojenie, 'SELECT nick FROM tb_uzivatel WHERE nick="$nick"');
-     //   if(!$objekt_vysledkov){
+        $sql_nick = "SELECT 
+        nick
+    FROM
+        tb_uzivatel
+    WHERE
+        nick ='$nick'";
+     
+    $vysledok_nick = mysqli_query($db_spojenie, $sql_nick);
+    if(!$vysledok_nick){
+    echo 'Skus znova. Chyba:';
+    echo mysql_error();
+    }
+    else{
+    if(mysqli_num_rows($vysledok_nick) == 0)
+        $nick_valid=true;
+    else
+        $nick_valid=false;
+    }
+    
+    if($nick_valid == true){
 
     $sql_mesta = "SELECT 
         pk_mesto,
@@ -58,10 +80,8 @@ else
 {
 if(mysqli_num_rows($vysledok) == 0)
 {
-/*
-Vložiť nové mesto do tb_mesto
+//Vložiť nové mesto do tb_mesto
 
-*/
     $sql_vloz_mesto = "INSERT INTO
         tb_mesto
         (mesto, psc)
@@ -82,99 +102,100 @@ Vložiť nové mesto do tb_mesto
 
     $fk_mesto = $riadok['pk_mesto'];
 
-    $sql_login1 = "INSERT INTO
-        tb_uzivatel 
-        (nick, heslo)
-    VALUES
-        ('$nick', '$heslo')";
+    // vloženie udajov o pouzivatelovi do tb_osoba
+    $registruj_udaje = mysqli_query($db_spojenie, "INSERT INTO
+    tb_osoba
+    (meno, priezvisko, rodne_cislo, adresa, telefon, email, dat_registracie, fk_mesto)
+VALUES
+    ('$meno', '$priezvisko', '$rodne_cislo', '$adresa', '$telefon', '$email', '$date', '$fk_mesto')");
 
-        $registruj_login = mysqli_query($db_spojenie, "INSERT INTO
-        tb_uzivatel 
-        (nick, heslo)
-    VALUES
-        ('$nick', '$heslo')");
+// vybratie pk_osoba z tb_osoba pre vlozenie login informacii
+ $vysledok_pk = mysqli_query($db_spojenie, "SELECT 
+ pk_osoba
+ FROM
+ tb_osoba
+ WHERE
+    rodne_cislo ='$rodne_cislo'");
 
-    $sql_udaje = "INSERT INTO
-        tb_osoba
-        (meno, priezvisko, rodne_cislo, adresa, telefon, email, dat_registracie, fk_mesto)
-    VALUES
-        ('$meno', '$priezvisko', '$rodne_cislo', '$adresa', '$telefon', '$email', '$date', '$fk_mesto')";
-     
+$riadok = mysqli_fetch_array($vysledok_pk);
+    $pk_osoba = $riadok['pk_osoba'];
+    //$pk_osoba = 1;    // pre prvy zapis do databazy
+   
+// vloženie login informacii do tb_uzivatel
+    $registruj_login = mysqli_query($db_spojenie, "INSERT INTO
+    tb_uzivatel 
+    (pk_uzivatel,nick, heslo)
+VALUES
+    ('$pk_osoba','$nick', '$heslo')");
+   
 
-        $registruj_udaje = mysqli_query($db_spojenie, "INSERT INTO
-        tb_osoba
-        (meno, priezvisko, rodne_cislo, adresa, telefon, email, dat_registracie, fk_mesto)
-    VALUES
-        ('$meno', '$priezvisko', '$rodne_cislo', '$adresa', '$telefon', '$email', '$date', '$fk_mesto')");
-
-
-
-if (!$registruj_login && !$registruj_udaje) {
+if (!$registruj_login && !$registruj_udaje) {   //kontrola pribehu zapisu do databazy
     die ('Chyba zaslania príkazu SQL pri registracii'  . mysqli_error($db_spojenie));
 }
-else {
-    echo 'Uspešne registrovany'; 
-
+else {  //uspešná registrácia
+    echo 'Uspešne registrovany, mozes sa prihlasit ';   
+    echo '<div class="loader"></div>';
+    header('Refresh: 5; URL=db_prihlasenie.php');   //prepoji na /db_prihlasenie.php
 }
-
 }
-else
+else // ak sa mesto už nachádza v databaze
 {
-// dasdsadddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
 
- 
     $riadok = mysqli_fetch_array($vysledok);
-    if($psc == $riadok['psc'])    //skontroluje ci sa psc mesta zhoduje z psc vlozeneho osobou
+    if($psc == $riadok['psc'])    //skontroluje ci sa psc mesta zhoduje s psc vlozeneho osobou
     {
         $fk_mesto = $riadok['pk_mesto'];
     }
     else{
         echo "zadali ste spravne PSČ?";
-
     }
 
-    $sql_login2 = "INSERT INTO
+    // vloženie udajov o pouzivatelovi do tb_osoba
+    $registruj_udaje = mysqli_query($db_spojenie, "INSERT INTO
+    tb_osoba
+    (meno, priezvisko, rodne_cislo, adresa, telefon, email, dat_registracie, fk_mesto)
+VALUES
+    ('$meno', '$priezvisko', '$rodne_cislo', '$adresa', '$telefon', '$email', '$date', '$fk_mesto')");
+
+// vybratie pk_osoba z tb_osoba pre vlozenie login informacii
+ $vysledok_pk = mysqli_query($db_spojenie, "SELECT 
+ pk_osoba
+ FROM
+ tb_osoba
+ WHERE
+    rodne_cislo ='$rodne_cislo'");
+
+$riadok = mysqli_fetch_array($vysledok_pk);
+    $pk_osoba = $riadok['pk_osoba'];
+    //$pk_osoba = 1;    // pre prvy zapis do databazy
+   
+    // vloženie login informacii do tb_uzivatel
+    $registruj_login = mysqli_query($db_spojenie, "INSERT INTO  
         tb_uzivatel 
-        (nick, heslo)
+        (pk_uzivatel,nick, heslo)
     VALUES
-        ('$nick', '$heslo')";
+        ('$pk_osoba','$nick', '$heslo')");  
 
-    $sql_udaje = "INSERT INTO
-        tb_osoba
-        (meno, priezvisko, rodne_cislo, adresa, telefon, email, dat_registracie, fk_mesto)
-    VALUES
-        ('$meno', '$priezvisko', '$rodne_cislo', '$adresa', '$telefon', '$email', '$date', '$fk_mesto')";
-     
-$registruj_login = mysqli_query($db_spojenie, "INSERT INTO
-tb_uzivatel 
-(nick, heslo)
-VALUES
-('$nick', '$heslo')");
-
-
-$registruj_udaje = mysqli_query($db_spojenie, "INSERT INTO
-tb_osoba
-(meno, priezvisko, rodne_cislo, adresa, telefon, email, dat_registracie, fk_mesto)
-VALUES
-('$meno', '$priezvisko', '$rodne_cislo', '$adresa', '$telefon', '$email', '$date', '$fk_mesto')");
-
-if (!$registruj_login && !$registruj_udaje) {
+if (!$registruj_login && !$registruj_udaje) {   //kontrola pribehu zapisu do databazy
     die ('Chyba zaslania príkazu SQL pri registracii'  . mysqli_error($db_spojenie));
 }
-else {
+else {  //uspešná registrácia
     echo 'Uspešne registrovany'; 
-
+    echo '<div class="loader"></div>';
+    header('Refresh: 5; URL=db_prihlasenie.php'); //prepoji na /db_prihlasenie.php
 }
-// aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     }
 
 }
-
+if ($db_spojenie) mysqli_close($db_spojenie);   //odpojenie z databazy
+    }
+    else    //kontrola nicku - ak uz existuje
+        echo "Nick uz existuje, zvol si iny!";
 }
-else
+
+else    //kontrola zhody hesla - ak sa nezhoduju
 echo "Hesla sa nezhoduju!";
-
 }
- //  if ($db_spojenie) mysqli_close($db_spojenie);
+
 include "html_pata.php";
 ?>

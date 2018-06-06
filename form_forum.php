@@ -1,8 +1,7 @@
 <form action="db_forum.php" method="post">
 		<h2>Fórum!</h2>
 		<br>Tvoja otázka: <br>
-		<textarea ng-model="message" rows="2" cols="80" name="otazka" maxlength="500"></textarea> <br>
-		
+		<textarea ng-model="message" rows="2" cols="80" name="otazka" maxlength="500"></textarea> <br>		
 		<p>
 			<input type="submit" value="Odoslať správu" name="ok">
 			<button ng-click="clear()">Zmazať</button>

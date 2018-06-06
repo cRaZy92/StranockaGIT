@@ -1,8 +1,17 @@
 <?php
 session_start();
-$titulok="Zanechanie odkazu";
-include "html_hlavicka.php";
-include "body_start.php";
+if(!isset($_SESSION['signed_in']))
+{
+    $titulok="Chyba!";
+    include "html_hlavicka.php";
+    include "body_start.php";
+    echo 'Nie si prihlásený, <a href="db_prihlasenie.php">klikni sem pre prihlásenie.</a>'; 
+}
+else
+{
+    $titulok="Zanechanie odkazu";
+    include "html_hlavicka.php";
+    include "body_start.php";
 include "form_odkaz.php";
 
 if(isset($_POST['ok'])){
@@ -28,7 +37,7 @@ echo "Odkaz zaslaný. <br>";
 if($db_spojenie) mysqli_close($db_spojenie);
 
 }
-
+}
 include "body_end.php";
 include "html_pata.php";
 ?>

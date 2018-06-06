@@ -1,5 +1,5 @@
 <form action="komentovanie.php" method="post">
-<textarea ng-model="message" cols="70" rows="10" name="komentar" maxlength="300"></textarea>
+<textarea ng-model="message" cols="100" rows="5" name="komentar" maxlength="300"></textarea>
 
 <p>
 <input type="submit" value="Odoslať komentár" name="ok">

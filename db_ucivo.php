@@ -1,9 +1,20 @@
 <?php
 session_start();
-$titulok="Učivo";
-include "html_hlavicka.php";
 
-include "body_start.php";
+if(!isset($_SESSION['signed_in']))
+{    
+    $titulok="Chyba!";
+    include "html_hlavicka.php";
+    include "body_start.php";
+    echo 'Nie si prihlásený, <a href="db_prihlasenie.php">klikni sem pre prihlásenie.</a>'; 
+}
+else
+{
+    $titulok="Učivo";
+    include "html_hlavicka.php";
+    include "body_start.php";
+
+
 require "form_ucivo.php";
 
 if(isset($_POST['ok'])){
@@ -16,6 +27,7 @@ switch($vyber){
     case "php_databazy":
     include_once "content_php_databazy.php";
     break;
+}
 }
 }
 /*

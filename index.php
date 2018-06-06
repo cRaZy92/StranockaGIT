@@ -1,9 +1,13 @@
 <?php
+
+
+
 session_start();
 $titulok="Stranocka";
 include "html_hlavicka.php";
 
 include "body_start.php"
+
 ?>
 <h2>Vitajte na našej stránke !</h2>
 <div class="container">
@@ -17,10 +21,15 @@ include "body_start.php"
         <div class="caption">
           <p>Pekný obrázok na začiatok :)</p>
         </div>
+        
       
     </div>
   </div> 
   </div>
+  <?php 
+        echo "debug things:";
+        print_r($_SESSION);
+        ?>
   </div>  
 
 <?php

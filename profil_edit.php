@@ -8,6 +8,7 @@ require "db_pripojenie.php";
 require "form_profil.php";
 
 if (isset($_POST['ok'])){
+    $id = $_SESSION['pk_uzivatel'];
 
     $meno = $_POST['meno_n'];         //*
     $priezvisko = $_POST['priezvisko_n'];//*
@@ -97,6 +98,23 @@ if(!$uprav_udaje)
     {
         echo "Nepodarilo sa upraviť údaje v databáze!";
     }
+    $sql_udaje = mysqli_query($db_spojenie, "SELECT meno,priezvisko,pohlavie,adresa,telefon,dat_registracie,email,fk_mesto FROM tb_osoba WHERE pk_osoba='$id'");
+    $osobne_udaje = mysqli_fetch_array($sql_udaje);
+    $pk_mesto = $riadok['fk_mesto'];
+    
+    $vysledok_mesto = mysqli_query($db_spojenie, "SELECT mesto,psc FROM tb_mesto WHERE pk_mesto='$pk_mesto'");
+    $riadok_mesto = mysqli_fetch_array($vysledok_mesto);
+
+    //prevzatie udajov o pouzivatelovi z databazy a ulozenie do session
+    $_SESSION['meno'] = $osobne_udaje['meno'];
+    $_SESSION['priezvisko'] = $osobne_udaje['priezvisko'];
+    $_SESSION['pohlavie'] = $osobne_udaje['pohlavie'];
+    $_SESSION['adresa'] = $osobne_udaje['adresa'];
+    $_SESSION['telefon'] = $osobne_udaje['telefon'];
+    $_SESSION['email'] = $osobne_udaje['email'];
+    $_SESSION['mesto'] = $riadok_mesto['mesto'];
+    $_SESSION['psc'] = $riadok_mesto['psc'];
+    $_SESSION['dat_registracie'] = $osobne_udaje['dat_registracie'];
     echo '<script> location.replace("profil.php"); </script>';
 }
 }

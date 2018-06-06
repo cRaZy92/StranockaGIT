@@ -32,11 +32,11 @@
     <li>
     <p>Zapisovanie zmien v databaze do suboru</p>
     </li>
-
+    </ol>
     <h3>Dokončené</h3>
+    <p class="done">Možnosť pozieť si profil iných</p>
     <p class="done">Akože "fórum"</p>
     <p class="done">Nastavenie pohlavia v profile</p>
     <p class="done">Zabezpečenie stránky - encryption of passwords</p>
     <p class="done">Validacia mailu</p>
     <p class="done">Vyplnovanie osobnych udajov dodatocne v profile</p>
-    </ol>

@@ -1,5 +1,15 @@
 <?php
 session_start();
+
+if(isset($_SESSION['signed_in']))
+{
+    $titulok="Chyba!";
+    include "html_hlavicka.php";
+    include "body_start.php";
+    echo 'Už si prihláseny! <a href="index.php">Klikni sem pre návrat.</a>'; 
+}
+else
+{
 $titulok="Registrácia";
 include "html_hlavicka.php";
 include "body_start.php";
@@ -57,6 +67,7 @@ else {  //uspešná registrácia
     }   //heslo
     if ($db_spojenie) mysqli_close($db_spojenie);   //odpojenie z databazy
         }      //isset [ok]
+}
 include "body_end.php";
 include "html_pata.php";
 ?>

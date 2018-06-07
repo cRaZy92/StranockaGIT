@@ -1,45 +1,203 @@
-/* CSS Document */
-body{
-background-color: #CFCFCF;
-font-size:13px;
+html,
+body {
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
 }
 
-#nadpis{
-background-color:   #AFAFAF;
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 25px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
+  padding-top: 5rem;
+  margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
-h1{
-padding-top: 20px;
-text-align: center;
-color: #0015FF;
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
 }
-
-.first{
-background-color: rgb(102,153,255);
-width: 30%;
+.form-signin .checkbox {
+  font-weight: 400;
 }
-li{
-line-height:2;
-color: rgb(0,102,51);
-font-weight: bold;
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
 }
-
-.second{
- background-color: rgb(255,255,153);
-width: auto;
+.form-signin .form-control:focus {
+  z-index: 2;
 }
-
-p{
-text-align: justify;
-padding: 0px 15 px;
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
-
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.starter-template {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
 .done{
     text-decoration: line-through;
-    color:rgb(75, 244, 66);
+    color:rgb(54, 216, 45);
 }
 
+.panel-body  {
+    word-break:break-all;
+}
+.otazka {
+    word-break:break-all;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Set the fixed height of the footer here */
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+#text_center{
+  text-align: center;
+}
 
+@media (max-width: 991.98px) {
+  .offcanvas-collapse {
+    position: fixed;
+    top: 56px; /* Height of navbar */
+    bottom: 0;
+    left: 100%;
+    width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    overflow-y: auto;
+    visibility: hidden;
+    background-color: #343a40;
+    transition-timing-function: ease-in-out;
+    transition-duration: .3s;
+    transition-property: left, visibility;
+  }
+  .offcanvas-collapse.open {
+    left: 0;
+    visibility: visible;
+  }
+}
 
+.text-white-50 { color: rgba(255, 255, 255, .5); }
 
+.bg-purple { background-color: #6f42c1; }
 
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+.lh-100 { line-height: 1; }
+.lh-125 { line-height: 1.25; }
+.lh-150 { line-height: 1.5; }
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+#alignright {
+	float: right;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.modal-dialog {
+  width: 360px;
+}
+.modal-header {
+background-color: #337AB7;
+padding:16px 16px;
+color:#FFF;
+border-bottom:2px dashed #337AB7;
+}

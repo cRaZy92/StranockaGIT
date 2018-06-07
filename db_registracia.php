@@ -12,7 +12,7 @@ else
 {
 $titulok="Registrácia";
 include "html_hlavicka.php";
-include "body_start.php";
+echo '<body class="text-center">';
 require "form_registracia.php";
 
 if (isset($_POST['ok'])){

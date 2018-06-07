@@ -1,9 +1,9 @@
-<form action="db_registracia.php" method="post">
-    
-        <p>Nick: <input type="text" name="nick" placeholder="janko" required></p>
-        <p>Heslo: <input type="password" name="heslo" required></p>
-        <p>Heslo znova: <input type="password" name="heslo_z" required></p>
-        <p>Email: <input type="text" name="email" placeholder="jankomrkvicka@gmail.com" required></p>
-  
-    <input type="submit" name="ok" value="Registruj sa" class="btn btn-success">
-</form>
+<form class="form-signin" action="db_registracia.php" method="post">
+      <img class="mb-4" src="https://openclipart.org/download/185270/Light-Bulb-Icon.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Registruj sa</h1>
+      <input type="text" name="nick" class="form-control" placeholder="Nick" required autofocus>
+      <input type="email" name="email" class="form-control" placeholder="Emailová adresa" required>
+      <input type="password" name="heslo" id="inputPassword" class="form-control" placeholder="Heslo" required>
+      <input type="password" name="heslo_z" id="inputPassword" class="form-control" placeholder="Heslo znova" required>
+      <button class="btn btn-lg btn-success btn-block" type="submit" name="ok">Registrovať</button>
+    </form>

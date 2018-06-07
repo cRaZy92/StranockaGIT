@@ -7,11 +7,11 @@ function loginCheck(){
             }
             else{
                   $_SESSION['admin'] = false;
-                  include "menu2.php";
+                  include "menu_logged.php";
             }
             }
       else{
-   include "menu1.php";
+   include "menu.php";
       }
 }
 ?>

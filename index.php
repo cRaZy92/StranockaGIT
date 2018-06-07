@@ -1,38 +1,26 @@
 <?php
-
-
-
 session_start();
-$titulok="Stranocka";
+$titulok = "Domov";
 include "html_hlavicka.php";
-
-include "body_start.php"
-
+    
 ?>
-<h2>Vitajte na našej stránke !</h2>
-<div class="container">
-<div class="row">
-      <div class="col-md-4">
-    <div class="thumbnail">
- 
-      <a href="https://janellohm.files.wordpress.com/2013/07/programmers-funny-pictures-coding-jokes.jpg" target="_blank">
-        <img src="https://janellohm.files.wordpress.com/2013/07/programmers-funny-pictures-coding-jokes.jpg" class="img-thumbnail" alt="random-image" style="width:100%">
-        </a>
-        <div class="caption">
-          <p>Pekný obrázok na začiatok :)</p>
-        </div>
-        
-      
-    </div>
-  </div> 
-  </div>
-  <?php 
-        echo "debug things:";
-        print_r($_SESSION);
+    <main role="main" class="container">
+
+      <div class="starter-template">
+        <h1>Vitaj na našej stránke</h1>
+        <?php
+        if(!isset($_SESSION['signed_in'])){
+            echo '<p class="lead">Teraz sa môžeš prihásiť alebo registrovať.</p>';
+        }
+        else{
+            echo '<p class="lead">Úspešne prihásený.<br> Môžeš preskúmať náš web.</p>';
+        }
+        //print_r($_SESSION);
         ?>
-  </div>  
+      </div>
 
+    </main><!-- /.container -->
 <?php
-include "body_end.php";
-include "html_pata.php";
-?>
+    include "html_pata.php";
+
+    ?>

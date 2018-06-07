@@ -12,37 +12,13 @@
     <meta name='robots' content='all'>
     <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css" type="text/css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-  <style>
-.done{
-    text-decoration: line-through;
-    color:rgb(54, 216, 45);
-}
-.second{
- background-color: rgb(255,255,153);
-width: auto;
-}
-    </style>
   </head>
   <body>
-
-<br><br><br><br><br><br>
-    <table width="90%" align="center" border="2" bordercolor="#003399" cellspacing="2">
-      <tr id="nadpis">
-      <td colspan="2">
-      <h1 ><a href="index.php">Naša stránočka</a></h1>
-      </td>
-      </tr>
-      <?php
+    <?php
       require "login_check.php";
       loginCheck();
-      ?>
+    ?>

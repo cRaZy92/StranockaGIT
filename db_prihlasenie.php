@@ -12,14 +12,7 @@ else
 
 $titulok="Prihlásenie";
 include "html_hlavicka.php";
-include "body_start.php";
-if(isset($_SESSION['n_user']))
-{
-    //hlasenie o uspesnej registracii
-    echo '<div class="alert alert-success">
-<strong>Úspešne registrovaný!</strong> Môžeš sa prihlásiť.
-</div>';
-}
+
 require "form_prihlasenie.php";
 
 if (isset($_POST['ok'])){
@@ -102,6 +95,5 @@ else
     if($db_spojenie) mysqli_close($db_spojenie);
 }
 }
-include "body_end.php";
 include "html_pata.php";
 ?>

@@ -1,15 +1,24 @@
-<form action="db_prihlasenie.php" method="post">
+<body class="text-center">
 
-    <div class="input-group">
-      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-      <input type="text" name="nick" class="form-control" placeholder="nick" required>
-    </div>
-    <br>
-    <div class="input-group">
-      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-      <input type="password" name="heslo" class="form-control" placeholder="heslo" required>
-    </div>
-    <br><br>
-    <input type="submit" name="ok" value="Prihlas" class="btn btn-success">
-
-</form>
+<form class="form-signin" action="db_prihlasenie.php" method="post">
+<?php
+if(isset($_SESSION['n_user']))
+{
+    //hlasenie o uspesnej registracii
+    echo '<div class="alert alert-success">
+<strong>Úspešne registrovaný!</strong> Môžeš sa prihlásiť.
+</div>';
+}
+?>
+      <img class="mb-4" src="https://openclipart.org/download/185270/Light-Bulb-Icon.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Prihlás sa</h1>
+      <input type="text" name="nick" class="form-control" placeholder="Nick" required autofocus>
+      <input type="password" name="heslo" id="inputPassword" class="form-control" placeholder="Heslo" required>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me" disabled> Zapamätať si ma
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" name="ok">Prihlásiť</button>
+    </form>
+    

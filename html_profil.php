@@ -1,76 +1,125 @@
-<div class="container">
-	<div class="row">
-		<div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
-    	 <div class="well profile">
-            <div class="col-sm-12">
-                <div class="col-xs-12 col-sm-8">
-                    <h2>Nicole Pearson</h2>
-                    <p><strong>About: </strong> Web Designer / UI. </p>
-                    <p><strong>Hobbies: </strong> Read, out with friends, listen to music, draw and learn new things. </p>
-                    <p><strong>Skills: </strong>
-                        <span class="tags">html5</span> 
-                        <span class="tags">css3</span>
-                        <span class="tags">jquery</span>
-                        <span class="tags">bootstrap3</span>
-                    </p>
-                </div>             
-                <div class="col-xs-12 col-sm-4 text-center">
-                    <figure>
-                        <img src="http://www.localcrimenews.com/wp-content/uploads/2013/07/default-user-icon-profile.png" alt="" class="img-circle img-responsive">
-                        <figcaption class="ratings">
-                            <p>Ratings
-                            <a href="#">
-                                <span class="fa fa-star"></span>
-                            </a>
-                            <a href="#">
-                                <span class="fa fa-star"></span>
-                            </a>
-                            <a href="#">
-                                <span class="fa fa-star"></span>
-                            </a>
-                            <a href="#">
-                                <span class="fa fa-star"></span>
-                            </a>
-                            <a href="#">
-                                 <span class="fa fa-star-o"></span>
-                            </a> 
-                            </p>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>            
-            <div class="col-xs-12 divider text-center">
-                <div class="col-xs-12 col-sm-4 emphasis">
-                    <h2><strong> 20,7K </strong></h2>                    
-                    <p><small>Followers</small></p>
-                    <button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span> Follow </button>
-                </div>
-                <div class="col-xs-12 col-sm-4 emphasis">
-                    <h2><strong>245</strong></h2>                    
-                    <p><small>Following</small></p>
-                    <button class="btn btn-info btn-block"><span class="fa fa-user"></span> View Profile </button>
-                </div>
-                <div class="col-xs-12 col-sm-4 emphasis">
-                    <h2><strong>43</strong></h2>                    
-                    <p><small>Snippets</small></p>
-                    <div class="btn-group dropup btn-block">
-                      <button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Options </button>
-                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                        <span class="caret"></span>
-                        <span class="sr-only">Toggle Dropdown</span>
-                      </button>
-                      <ul class="dropdown-menu text-left" role="menu">
-                        <li><a href="#"><span class="fa fa-envelope pull-right"></span> Send an email </a></li>
-                        <li><a href="#"><span class="fa fa-list pull-right"></span> Add or remove from a list  </a></li>
-                        <li class="divider"></li>
-                        <li><a href="#"><span class="fa fa-warning pull-right"></span>Report this user for spam</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#" class="btn disabled" role="button"> Unfollow </a></li>
-                      </ul>
-                    </div>
-                </div>
-            </div>
-    	 </div>                 
-		</div>
-	</div>
-</div>
+<div class="container bootstrap snippet">
+    <div class="row">
+  		<div class="col-sm-10"><h1><?php echo $_SESSION['nick']; ?></h1></div>
+    </div>
+    <div class="row">
+  		<div class="col-sm-3"><!--left col-->
+              
+
+      <div class="text-center">
+        <img src="img_avatar1.png" class="avatar img-circle img-thumbnail" alt="avatar">
+      </div></hr><br>
+
+        <!--  Webstránka použivateľa       
+          <div class="panel panel-default">
+            <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
+            <div class="panel-body"><a href="http://bootnipets.com">bootnipets.com</a></div>
+          </div>
+        -->
+
+        <?php
+        $sql_otazky = "SELECT 
+            id_otazky
+        FROM
+            tb_otazky
+        WHERE
+            user_id ='$id'";
+     
+$vsetky_otazky = mysqli_query($db_spojenie, $sql_otazky);
+$p_otazok = mysqli_num_rows($vsetky_otazky);
+
+$sql_komentare = "SELECT 
+            id_otazky_k
+        FROM
+            tb_komentare
+        WHERE
+            user_id ='$id'";
+     
+$vsetky_komentare = mysqli_query($db_spojenie, $sql_komentare);
+$p_komentarov = mysqli_num_rows($vsetky_komentare);
+
+
+        ?>
+
+          
+          <ul class="list-group">
+            <li class="list-group-item text-muted">Aktivita <i class="fa fa-dashboard fa-1x"></i></li>
+            <li class="list-group-item text-center"><span class="pull-left"><strong>Otázky:</strong></span> <?php echo $p_otazok; ?></li>
+            <li class="list-group-item text-center"><span class="pull-left"><strong>Komentáre:</strong></span> <?php echo $p_komentarov; ?></li>
+          </ul> 
+          <br>
+          <h6 class="text-center">Dátum registrácie: <?php echo $date_u; ?></h6>
+          <br>
+          <div class="text-center">
+          <button onclick="location.href = 'profil_edit.php';" class="btn btn-primary">Upraviť profil</button>
+        </div> 
+          
+        </div><!--/col-3-->
+    	<div class="col-sm-9">
+            
+
+              
+          <div class="tab-content">
+            <div class="tab-pane active" id="home">
+                
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="first_name"><h4>Meno a priezvisko</h4></label>
+                              <p style="font-size:20px"><span>&#8203;</span> <span>&#8203;</span> <span>&#8203;</span> <?php echo $_SESSION['meno'] . " " . $_SESSION['priezvisko']; ?></p>
+                              <hr>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                            <label for="last_name"><h4>Email</h4></label>
+                            <p style="font-size:20px"><span>&#8203;</span> <span>&#8203;</span> <span>&#8203;</span> <?php echo $_SESSION['email']; ?></p>
+                              <hr>
+                          </div>
+                      </div>
+          
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="phone"><h4>Telefónne číslo</h4></label>
+                              <p style="font-size:20px"><span>&#8203;</span> <span>&#8203;</span> <span>&#8203;</span> <?php echo $_SESSION['telefon']; ?></p>
+                              <hr>
+                          </div>
+                      </div>
+          
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                             <label for="mobile"><h4>Pohlavie</h4></label>
+                             <p style="font-size:20px"><span>&#8203;</span> <span>&#8203;</span> <span>&#8203;</span> <?php echo $_SESSION['pohlavie']; ?></p>
+                             <hr>
+                          </div>
+                        
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="email"><h4>Mesto a PSČ</h4></label>
+                              <p style="font-size:20px"><span>&#8203;</span> <span>&#8203;</span> <span>&#8203;</span> <?php echo $_SESSION['mesto'] . ", " . $_SESSION['psc']; ?></p>
+                              <hr>
+                          </div>
+
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="email"><h4>Adresa</h4></label>
+                              <p style="font-size:20px"><span>&#8203;</span> <span>&#8203;</span> <span>&#8203;</span> <?php echo $_SESSION['adresa']; ?></p>
+                          </div>
+
+                      </div>
+
+              <hr>
+              
+            </div><!--/tab-pane-->               
+               
+                  
+             
+          </div><!--/tab-content-->
+
+        </div><!--/col-9-->
+    </div><!--/row-->

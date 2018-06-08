@@ -21,34 +21,6 @@ include "form_forum.php";
 require "forum_start.php";
 require "db_pripojenie.php";
 
-?>
-
-
-
-<!--
-<div id="id01" class="modal">
-  
-  <form class="modal-content animate" action="db_forum.php" method="post">
-
-    <div class="container">
-      <label for="otazka"><b>Otázka</b></label>
-      <textarea ng-model="message" rows="2" cols="80" name="otazka" maxlength="500"></textarea> <br>
-      <input type="text" placeholder="Otázka" name="otazka" required>
-
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw">
-        
-      <button type="submit" name="ok">Položiť otázku</button>
-    </div>
-
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-    </div>
-  </form>
-</div>
-
--->
-<?php
 if(isset($_POST['ok'])){
 
         $otazka = $_POST['otazka'];

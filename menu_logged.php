@@ -28,6 +28,8 @@
           </li>
           
         </ul>
-        <!-- Vypisať nick uzivatela -->
+        <div class="text-info">
+        Prihlásený používateľ <a href="profil.php" class="text-danger"> <?php echo $_SESSION['nick']; ?></a>
+        </div>
       </div>
     </nav>

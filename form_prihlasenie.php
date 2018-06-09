@@ -16,7 +16,7 @@ if(isset($_SESSION['n_user']))
       <input type="password" name="heslo" id="inputPassword" class="form-control" placeholder="Heslo" required>
       <div class="checkbox mb-3">
         <label>
-          <input type="checkbox" value="remember-me" disabled> Zapamätať si ma
+          <input type="checkbox" name="remember_me" value="1" id="remember_me"> Zapamätať si ma
         </label>
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit" name="ok">Prihlásiť</button>

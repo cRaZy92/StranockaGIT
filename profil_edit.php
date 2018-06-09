@@ -1,12 +1,16 @@
 <?php
 session_start();
-$titulok="Úprava profilu";
-include "html_hlavicka.php";
-require "db_pripojenie.php";
-
-
-
+if(!isset($_SESSION['signed_in']))
+{
+    include "chyba_prihlasenia.php";
+}
+else
+{
+    $titulok="Úprava profilu";
+    include "html_hlavicka.php";
+    require "db_pripojenie.php";
 if (isset($_POST['ok'])){
+    
     $id = $_SESSION['pk_uzivatel'];
 
     $sql = "SELECT 
@@ -142,5 +146,6 @@ if(!$uprav_udaje)
 
 }
 require "form_profil.php";
+}
 include "html_pata.php";
 ?>

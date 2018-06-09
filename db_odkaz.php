@@ -2,17 +2,13 @@
 session_start();
 if(!isset($_SESSION['signed_in']))
 {
-    $titulok="Chyba!";
-    include "html_hlavicka.php";
-    include "body_start.php";
-    echo 'Nie si prihlásený, <a href="db_prihlasenie.php">klikni sem pre prihlásenie.</a>'; 
+    include "chyba_prihlasenia.php";
 }
 else
 {
     $titulok="Zanechanie odkazu";
     include "html_hlavicka.php";
-    include "body_start.php";
-include "form_odkaz.php";
+    include "form_odkaz.php";
 
 if(isset($_POST['ok'])){
     require "db_pripojenie.php";
@@ -38,6 +34,5 @@ if($db_spojenie) mysqli_close($db_spojenie);
 
 }
 }
-include "body_end.php";
 include "html_pata.php";
 ?>

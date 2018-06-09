@@ -3,9 +3,7 @@ session_start();
 //$begin_time=microtime(true);
 if(!isset($_SESSION['signed_in']))
 {
-    $titulok="Chyba!";
-    include "html_hlavicka.php";
-    echo 'Nie si prihlásený, <a href="db_prihlasenie.php">klikni sem pre prihlásenie.</a>'; 
+    include "chyba_prihlasenia.php";
 }
 else
 {

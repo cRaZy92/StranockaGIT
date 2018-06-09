@@ -15,7 +15,8 @@ include "html_hlavicka.php";
         else{
             echo '<p class="lead">Úspešne prihásený.<br> Môžeš preskúmať náš web.</p>';
         }
-        //print_r($_SESSION);
+        //print_r($_COOKIE);    //vypise vsetky ulozene cookies
+        //print_r($_SESSION);   //vypise vsetko zo session
         ?>
       </div>
 

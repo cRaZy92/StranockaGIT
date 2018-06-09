@@ -11,6 +11,7 @@
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                     <a class="dropdown-item" href="todo.php">To-Do List</a>
+                    <a class="dropdown-item  disabled" href="#">Odkazy</a>
                     <a class="dropdown-item  disabled" href="#">All users</a>
                 </div>
           </li>
@@ -36,6 +37,10 @@
           </li>
           
         </ul>
-        <!-- Vypisať nick uzivatela -->
+        <div class="text-muted">
+        Prihlásený používateľ <a href="profil.php" class="text-success"> <?php echo $_SESSION['nick']; ?> <i class="material-icons">
+person
+</i></a>
+        </div>
       </div>
     </nav>

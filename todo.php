@@ -4,15 +4,13 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] == true)//test či je použiv
 {
 $titulok="To-Do list"; //ak ano tak zobrazi todo list
 include "html_hlavicka.php";
-include "body_start.php";
 require "todo_list.php";
+include "html_pata.php";
 }
 else{
     $titulok="Chyba!"; //ak nie tak napise chybu
     include "html_hlavicka.php";
-    include "body_start.php";
     echo "Nedostatočné práva!";
+    include "html_pata.php";
 }
-include "body_end.php";
-include "html_pata.php";
 ?>

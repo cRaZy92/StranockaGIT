@@ -3,10 +3,13 @@ session_start();
 ob_start();
 if(!isset($_SESSION['signed_in']))
 {
+    include "chyba_prihlasenia.php";
+    /*
     $titulok="Chyba!";
     include "html_hlavicka.php";
     include "body_start.php";
     echo 'Nie si prihlásený, <a href="db_prihlasenie.php">klikni sem pre prihlásenie.</a>'; 
+    */
 }
 else
 {
@@ -56,9 +59,6 @@ while($jedna_otazka = mysqli_fetch_array($otazky))
 }
 
 }
-
-if($db_spojenie) mysqli_close($db_spojenie);
-}
 if($p_otazok == 0 || $p_otazok >= 5){
     $otazka = "$p_otazok otázok.";
 }
@@ -67,6 +67,9 @@ else{
 }
 
 echo str_replace("##p_otazok##", $otazka, ob_get_clean());
+if($db_spojenie) mysqli_close($db_spojenie);
+}
+
 ?>
 </main>
 <script>

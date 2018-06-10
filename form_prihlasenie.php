@@ -1,3 +1,6 @@
+<!-- **********************************
+                Adam
+<********************************** -->
 <body class="text-center">
 
 <form class="form-signin" action="db_prihlasenie.php" method="post">

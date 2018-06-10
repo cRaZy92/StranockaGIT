@@ -1,6 +1,9 @@
+<!-- **********************************
+                Adam
+<********************************** -->
 <?php
 session_start();
-//$begin_time=microtime(true);
+//$begin_time=microtime(true); //testovanie casu CPU
 if(!isset($_SESSION['signed_in']))
 {
     include "chyba_prihlasenia.php";

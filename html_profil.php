@@ -1,3 +1,6 @@
+<!-- **********************************
+                Adam
+<********************************** -->
 <div class="container bootstrap snippet">
     <div class="row">
   		<div class="col-sm-10"><h1><?php echo $_SESSION['nick']; ?></h1></div>

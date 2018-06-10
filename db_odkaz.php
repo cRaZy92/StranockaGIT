@@ -1,3 +1,6 @@
+<!-- **********************************
+                Kubo
+<********************************** -->
 <?php
 session_start();
 if(!isset($_SESSION['signed_in']))
@@ -8,6 +11,7 @@ else
 {
     $titulok="Zanechanie odkazu";
     include "html_hlavicka.php";
+    include "body_start.php";
     include "form_odkaz.php";
 
 if(isset($_POST['ok'])){
@@ -33,6 +37,8 @@ echo "Odkaz zaslaný. <br>";
 if($db_spojenie) mysqli_close($db_spojenie);
 
 }
-}
+include "body_end.php";
 include "html_pata.php";
+}
+
 ?>

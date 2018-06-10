@@ -1,3 +1,6 @@
+<!-- **********************************
+                Adam
+<********************************** -->
 <div class="media">
   <div class="media-left">
   <a href='profil_other.php?id_uzivatel=<?php echo $id_uzivatela_k; ?>'><img src="img_avatar1.png" class="media-object" style="width:60px"></a>

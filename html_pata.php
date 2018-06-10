@@ -1,3 +1,6 @@
+<!-- **********************************
+              Adam
+<********************************** -->    
     <footer class="footer">
       <div class="container">
         <span class="text-muted" id="text-center">Made with bootstrap by Adamko & Kubko.</span>

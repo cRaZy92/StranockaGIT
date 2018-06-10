@@ -1,3 +1,6 @@
+<!-- **********************************
+            Kubo a Adam
+<********************************** -->
 <div class="container bootstrap">
     <div class="text-center">
     <h1>Čo najskôr</h1>

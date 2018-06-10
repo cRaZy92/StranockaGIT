@@ -1,3 +1,6 @@
+<!-- **********************************
+                Adam
+<********************************** -->                
 <?php
 session_start();
 
@@ -8,11 +11,11 @@ if(!isset($_SESSION['signed_in']))
 else
 {
 $titulok="Otázka";
-include "html_hlavicka_custom.php";
+include "html_hlavicka.php";
 include "body_start.php";
 
 if(isset($_POST['id_otazky'])){
-    $_SESSION['id_otazky'] = $_POST['id_otazky'];
+    $_SESSION['id_otazky'] = $_POST['id_otazky']; 
 }
 $id_otazky = $_SESSION['id_otazky'];
     require "db_pripojenie.php";
@@ -30,6 +33,7 @@ if(mysqli_num_rows($komentare) == 0)
 else{
 while($jeden_komentar = mysqli_fetch_array($komentare))
 {
+
     $id_uzivatela_k = $jeden_komentar['user_id'];
     $nick_sql = mysqli_query($db_spojenie, "SELECT nick FROM tb_uzivatel WHERE pk_uzivatel='$id_uzivatela_k'");
     $uzivatel = mysqli_fetch_array($nick_sql);
@@ -63,7 +67,6 @@ echo '<script> location.replace("komentovanie.php"); </script>';
 }
 if ($db_spojenie) mysqli_close($db_spojenie);
 }
-
 include "body_end.php";
 include "html_pata.php";
 ?>

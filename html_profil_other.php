@@ -13,8 +13,12 @@
         <?php
         if($riadok_osoba['pohlavie'] == "žena")
         echo '<img src="img_avatar_f.png" class="avatar img-circle img-thumbnail" alt="avatar">';
-        else
-        echo '<img src="img_avatar1.png" class="avatar img-circle img-thumbnail" alt="avatar">';
+        else{
+            if($riadok_osoba['pohlavie'] == "muž")
+                echo '<img src="img_avatar_m.png" class="avatar img-circle img-thumbnail" alt="avatar">';
+            else
+                echo '<img src="img_avatar_i.png" class="avatar img-circle img-thumbnail" alt="avatar">';
+        }
         ?>
         
       </div></hr><br>

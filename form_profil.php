@@ -123,7 +123,7 @@
                       <div class="form-group">
                          
                           <div class="col-xs-6">
-                              <label for="password"><h4>Heslo</h4></label>
+                              <label for="password"><h4>Heslo pre potvrdenie zmien</h4></label>
                               <input type="password" class="form-control" name="heslo_z" placeholder="Zadaj heslo" required>
                           </div>
                       </div>
@@ -131,7 +131,7 @@
                       <div class="form-group">
                            <div class="col-xs-12">
                                 <br>
-                              	<button class="btn btn-lg btn-success" type="submit" name="ok">Uložiť</button>
+                              	<button class="btn btn-lg btn-success" type="submit" name="ulozit_zmeny">Uložiť</button>
                                	<button class="btn btn-lg" type="reset">Obnoviť</button>
                             </div>
                       </div>

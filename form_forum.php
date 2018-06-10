@@ -15,7 +15,7 @@
       <p>Zostavajuci počet znakov: <span ng-bind="left()"></span></p>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn btn-success" name="ok">Save</button>
+        <button type="submit" class="btn btn btn-success" name="vloz_otazku">Save</button>
         </form>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
       </div>

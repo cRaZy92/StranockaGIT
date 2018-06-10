@@ -7,12 +7,6 @@ ob_start();
 if(!isset($_SESSION['signed_in']))
 {
     include "chyba_prihlasenia.php";
-    /*
-    $titulok="Chyba!";
-    include "html_hlavicka.php";
-    include "body_start.php";
-    echo 'Nie si prihlásený, <a href="db_prihlasenie.php">klikni sem pre prihlásenie.</a>'; 
-    */
 }
 else
 {
@@ -27,28 +21,28 @@ include "form_forum.php";
 require "forum_start.php";
 require "db_pripojenie.php";
 
-if(isset($_POST['ok'])){
+if(isset($_POST['vloz_otazku'])){  //ak uzivatel chce vlozit novú otázku
 
         $otazka = $_POST['otazka'];
         $id = $_SESSION['pk_uzivatel'];
 
-$db_uloz_otazku = mysqli_query($db_spojenie,"INSERT INTO tb_otazky (user_id, otazka, cas) VALUES ('$id', '$otazka', NOW())");
+$db_uloz_otazku = mysqli_query($db_spojenie,"INSERT INTO tb_otazky (user_id, otazka, cas) VALUES ('$id', '$otazka', NOW())");  //vlozenie otazky do databazy
 
 if (!$db_uloz_otazku) {
     die ('Chyba zaslania príkazu SQL, pri odoslani otazky do tabuľky.'  . mysqli_error($db_spojenie));
 }
 else{
-echo '<script> location.replace("db_forum.php"); </script>';
+echo '<script> location.replace("db_forum.php"); </script>';  //uspesne vlozenie do db
 }
 }
 
-$otazky = mysqli_query($db_spojenie, "SELECT * FROM tb_otazky ORDER BY cas DESC");
+$otazky = mysqli_query($db_spojenie, "SELECT * FROM tb_otazky ORDER BY cas DESC"); //vybratie vsetkych otazok z db a zoradenie ich podla casu
 if(mysqli_num_rows($otazky) == 0) 
 {
-    echo "Zatiaľ žiadne otázky.";
+    echo "Zatiaľ žiadne otázky.";   //ak neexistuju ziadne otazky v db 
 }
 else{
-while($jedna_otazka = mysqli_fetch_array($otazky))
+while($jedna_otazka = mysqli_fetch_array($otazky)) //vypisuje vsetky otazky v db 
 {
     $id_uzivatela_o = $jedna_otazka['user_id'];
     $nick_sql = mysqli_query($db_spojenie, "SELECT nick FROM tb_uzivatel WHERE pk_uzivatel='$id_uzivatela_o'");
@@ -63,7 +57,7 @@ while($jedna_otazka = mysqli_fetch_array($otazky))
 
 }
 if($p_otazok == 0 || $p_otazok >= 5){
-    $otazka = "$p_otazok otázok.";
+    $otazka = "$p_otazok otázok.";  
 }
 else{
     $otazka = "$p_otazok otázky.";
@@ -76,10 +70,9 @@ if($db_spojenie) mysqli_close($db_spojenie);
 ?>
 </main>
 <script>
-// Get the modal
 var modal = document.getElementById('id01');
 
-// When the user clicks anywhere outside of the modal, close it
+// Ak uživatel klikne mimo okna, zavrie sa
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";

@@ -12,7 +12,7 @@ else
     $titulok="Úprava profilu";
     include "html_hlavicka.php";
     require "db_pripojenie.php";
-if (isset($_POST['ok'])){
+if (isset($_POST['ulozit_zmeny'])){
     
     $id = $_SESSION['pk_uzivatel'];
 

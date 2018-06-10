@@ -3,9 +3,9 @@
 <********************************** -->
 <?php
 session_start();
-if(isset($_SESSION['signed_in']))
+if(isset($_SESSION['signed_in']))  //ak je uživatel prihlaseny, vymaze vsetky premenne v session a cookies
 {
-  setcookie("nick", "", time()-3600);
+  setcookie("nick", "", time()-3600);  
   setcookie("password", "", time()-3600);
   session_destroy();
 

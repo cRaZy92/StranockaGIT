@@ -41,9 +41,7 @@
           
         </ul>
         <div class="text-muted">
-        Prihlásený používateľ <a href="profil.php" class="text-success"> <?php echo $_SESSION['nick']; ?> <i class="material-icons">
-person
-</i></a>
+        Prihlásený používateľ <a href="profil.php" class="text-success"> <?php echo $_SESSION['nick']; ?> <i class="material-icons">person</i></a>
         </div>
       </div>
     </nav>

@@ -1,6 +1,6 @@
 <!-- **********************************
                 Adam
-<********************************** -->
+*********************************** -->
 <?php
 session_start();
 if(isset($_SESSION['signed_in']))
@@ -18,7 +18,7 @@ include "html_hlavicka.php";
 
 require "form_prihlasenie.php";
 
-if(isset($_COOKIE['nick']) && isset($_COOKIE['password'])) {
+if(isset($_COOKIE['nick']) && isset($_COOKIE['password'])) { //ak su ulozene cookies, automaticky prihlasi
     $nick = $_COOKIE['nick'];
     $password = $_COOKIE['password'];
     require "db_pripojenie.php";

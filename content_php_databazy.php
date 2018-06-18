@@ -10,9 +10,9 @@
   <!-- mysqli_connect() -->
 
   <blockquote>
-    <p><code>mysqli_connect()</code></br>
-The <code>mysqli_connect()</code> function opens a new connection to the MySQL server.</br>
-Syntax: <code>mysqli_connect(host,username,password,dbname,port,socket);<code></br></br>
+    <p><code>mysqli_connect()</code><br>
+The <code>mysqli_connect()</code> function opens a new connection to the MySQL server.<br>
+Syntax: <code>mysqli_connect(host,username,password,dbname,port,socket);</code><br><br>
 
 Example:</br> 
 <code>

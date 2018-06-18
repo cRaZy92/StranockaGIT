@@ -10,7 +10,16 @@
               
 
       <div class="text-center">
-      <img src="img_avatar1.png" class="avatar img-circle img-thumbnail" alt="avatar">
+      <?php
+      if($_SESSION['pohlavie'] == "žena")
+        echo '<img src="img_avatar_f.png" class="avatar img-circle img-thumbnail" alt="avatar">';
+        else{
+            if($_SESSION['pohlavie'] == "muž")
+                echo '<img src="img_avatar_m.png" class="avatar img-circle img-thumbnail" alt="avatar">';
+            else
+                echo '<img src="img_avatar_i.png" class="avatar img-circle img-thumbnail" alt="avatar">';
+        }
+        ?>
         <input type="file" name="img" id="file" class="inputfile"/>
         <label for="file">Nahrať obrázok</label>
       

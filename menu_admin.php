@@ -10,14 +10,10 @@
           <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="todo.php">To-Do List</a>
+                    <a class="dropdown-item" href="admin/todo.php">To-Do List</a>
                     <a class="dropdown-item  disabled" href="">Odkazy</a>
-                    <a class="dropdown-item" href="db_users.php">All users</a>
+                    <a class="dropdown-item" href="admin/db_users.php">All users</a>
                 </div>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="profil.php">Profil</a>
           </li>
 
           <li class="nav-item">
@@ -37,8 +33,14 @@
           </li>
           
         </ul>
-        <div class="text-muted">
-        Prihlásený používateľ <a href="profil.php" class="text-success"> <?php echo $_SESSION['nick']; ?> <i class="material-icons">person</i></a>
+ 
+        <div class="nav-item dropdown" id="user_menu">
+                <a class="nav-link dropdown-toggle text-info" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span  style="font-size:18px"><i class="fas fa-user"></i>  <?php echo $_SESSION['nick']; ?></span></a>
+                <div class="dropdown-menu" aria-labelledby="dropdown02">
+                    <a class="dropdown-item" href="profil.php"><i class="far fa-address-card"></i> Zobraziť profil</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="db_odhlasenie.php"><i class="fas fa-sign-out-alt"></i> Odhlásiť</a>
+                </div>
         </div>
       </div>
     </nav>

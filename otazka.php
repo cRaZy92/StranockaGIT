@@ -17,3 +17,10 @@ $date_u = $date_u->format('d. m. Y H:i');
         </p>
     </form> 
 </div>
+ <!--
+<div class="d-flex align-items-start flex-column" style="height: 200px;">
+  <div class="mb-auto p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+  <div class="p-2">Flex item</div>
+</div>
+-->

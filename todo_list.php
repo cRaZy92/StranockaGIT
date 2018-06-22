@@ -12,10 +12,6 @@
     </li>
 
     <li>
-    <p>Nový dizajn</p>
-    </li>
-
-    <li>
     <p>Komentovanie obsahovych stranok - blog</p>
     </li>
 
@@ -36,6 +32,7 @@
     </li>
     </ul>
     <h3>Dokončené</h3>
+    <p class="done">Nový dizajn</p>
     <p class="done">Možnosť pozieť si profil iných</p>
     <p class="done">Akože "fórum"</p>
     <p class="done">Nastavenie pohlavia v profile</p>

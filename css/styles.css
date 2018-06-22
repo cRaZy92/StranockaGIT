@@ -204,3 +204,13 @@ border-bottom:2px dashed #337AB7;
 .inputfile + label {
 	cursor: pointer; /* "hand" cursor */
 }
+
+#user_menu{
+  position: relative;
+  right: 60px;
+}
+
+.divider-vertical {
+  height: 0px;
+  margin: 0 6px;
+  }

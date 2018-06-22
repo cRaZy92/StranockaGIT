@@ -132,3 +132,4 @@ $p_komentarov = mysqli_num_rows($vsetky_komentare);
 
         </div><!--/col-9-->
     </div><!--/row-->
+</div>

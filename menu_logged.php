@@ -7,29 +7,33 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             
-          <li class="nav-item">
-            <a class="nav-link" href="profil.php">Profil</a>
-          </li>
+        <li class="divider-vertical"></li>
 
           <li class="nav-item">
-            <a class="nav-link" href="db_ucivo.php">Učivo</a>
+            <a class="nav-link text-light" href="db_ucivo.php"><i class="fas fa-code"></i> Učivo</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="db_odkaz.php">Zanechaj odkaz</a>
-          </li>
+          <li class="divider-vertical"></li>
 
           <li class="nav-item">
-            <a class="nav-link" href="db_forum.php">Fórum</a>
+            <a class="nav-link text-light" href="db_odkaz.php"><i class="far fa-envelope"></i> Zanechaj odkaz</a>
           </li>
+          
+          <li class="divider-vertical"></li>
 
           <li class="nav-item">
-            <a class="nav-link" href="db_odhlasenie.php">Odhlásiť</a>
+            <a class="nav-link text-light" href="db_forum.php"><i class="fab fa-stack-exchange"></i> Fórum</a>
           </li>
           
         </ul>
-        <div class="text-muted">
-        Prihlásený používateľ <a href="profil.php" class="text-success"> <?php echo $_SESSION['nick']; ?> <i class="material-icons">person</i></a>
+
+        <div class="nav-item dropdown" id="user_menu">
+                <a class="nav-link dropdown-toggle text-info" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span  style="font-size:18px"><i class="fas fa-user"></i>  <?php echo $_SESSION['nick']; ?></span></a>
+                <div class="dropdown-menu" aria-labelledby="dropdown02">
+                    <a class="dropdown-item" href="profil.php"><i class="far fa-address-card"></i> Zobraziť profil</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="db_odhlasenie.php"><i class="fas fa-sign-out-alt"></i> Odhlásiť</a>
+                </div>
         </div>
       </div>
 </nav>

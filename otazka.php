@@ -1,6 +1,3 @@
-<!-- **********************************
-                Adam
-<********************************** -->
 <?php
 $date = $jedna_otazka['cas'];
 $date_u = DateTime::createFromFormat('Y-m-d H:i:s', $date);

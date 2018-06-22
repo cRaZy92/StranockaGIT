@@ -1,6 +1,3 @@
-<!-- **********************************
-            Kubo a Adam
-<********************************** -->
 <?php
 function loginCheck(){
       if(isset($_SESSION['signed_in'])){  

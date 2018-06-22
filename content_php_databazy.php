@@ -1,6 +1,3 @@
-<!-- **********************************
-                Kubo
-*********************************** -->
 <?php include "content_tb1.php"; 
 // tabuľka s príkladom databázy?>
 <div class="container">

@@ -1,6 +1,3 @@
-<!-- **********************************
-                Kubo
-<********************************** -->
 <form action="db_odkaz.php" method="post">
 		<h2>Zanechaj nám odkaz!</h2>
 		Správa: <br>

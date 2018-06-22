@@ -1,6 +1,3 @@
-<!-- **********************************
-                Adam
-<********************************** -->
 <?php
 session_start();
 //$begin_time=microtime(true); //testovanie casu CPU

@@ -1,6 +1,3 @@
-<!-- **********************************
-            Kubo a Adam
-<********************************** -->
 <?php
 // vloženie udajov o pouzivatelovi do tb_osoba
     $fk_mesto = 1;

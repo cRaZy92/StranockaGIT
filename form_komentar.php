@@ -1,6 +1,3 @@
-<!-- **********************************
-                Adam
-<********************************** -->
 <form action="komentovanie.php" method="post" ng-app="myNoteApp" ng-controller="myNoteCtrl">
 <textarea ng-model="message" cols="100" rows="5" name="komentar" maxlength="300"></textarea>
 

@@ -1,6 +1,3 @@
-<!-- **********************************
-              Kubo a Adam
-<********************************** -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
       <a class="navbar-brand" href="index.php">Domov</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,8 +11,8 @@
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                     <a class="dropdown-item" href="todo.php">To-Do List</a>
-                    <a class="dropdown-item  disabled" href="#">Odkazy</a>
-                    <a class="dropdown-item  disabled" href="#">All users</a>
+                    <a class="dropdown-item  disabled" href="">Odkazy</a>
+                    <a class="dropdown-item" href="db_users.php">All users</a>
                 </div>
           </li>
 

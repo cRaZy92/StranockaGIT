@@ -1,4 +1,11 @@
 <div class="container bootstrap snippet">
+<?php
+if(isset($add_success)){
+    //hlasenie o uspesnom pridaní priatela
+    echo '<div class="alert alert-success">
+      <strong>Žiadosť odoslaná!</strong> Dúfaj že ju príjme.</div>';
+}
+?>
     <div class="row">
   		<div class="col-sm-10"><h1><?php echo $riadok_uzivatel['nick']; ?></h1></div>
     </div>
@@ -33,7 +40,7 @@
         FROM
             tb_otazky
         WHERE
-            user_id ='$id_uzivatela_other'";
+            user_id ='$id_other'";
      
 $vsetky_otazky = mysqli_query($db_spojenie, $sql_otazky);
 $p_otazok = mysqli_num_rows($vsetky_otazky);
@@ -43,11 +50,10 @@ $sql_komentare = "SELECT
         FROM
             tb_komentare
         WHERE
-            user_id ='$id_uzivatela_other'";
+            user_id ='$id_other'";
      
 $vsetky_komentare = mysqli_query($db_spojenie, $sql_komentare);
 $p_komentarov = mysqli_num_rows($vsetky_komentare);
-
 
         ?>
 
@@ -60,6 +66,23 @@ $p_komentarov = mysqli_num_rows($vsetky_komentare);
           <br>
           <h6 class="text-center">Dátum registrácie: <?php echo $date_u; ?></h6>
           <br>
+          <div class="text-center">
+          <?php
+        if($id != $id_other){
+if(isset($already_requested)){
+    echo '<button type="submit" class="btn btn-success" disabled>Čaká sa na odpoveď</button>';
+}
+else{
+?>
+    <form action="profil_other.php?id_uzivatel=<?php echo $id_other ?>" method="POST">
+        <button type="submit" name="pridat" value="$id_other" class="btn btn-success">Pridať priateľa</button>
+    </form>
+<?php
+    }
+}
+?>
+          
+        </div>
           
         </div><!--/col-3-->
     	<div class="col-sm-9">
@@ -130,3 +153,4 @@ $p_komentarov = mysqli_num_rows($vsetky_komentare);
 
         </div><!--/col-9-->
     </div><!--/row-->
+</div>

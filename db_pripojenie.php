@@ -11,7 +11,7 @@ else{
 $db_ip = '127.0.0.1';
 $db_login = 'root';
 $db_pass = '';
-$db_name = 'db_stankocka1';
+$db_name = 'stranocka';
 $db_port = '3306';  
 }
 $db_spojenie = mysqli_connect($db_ip,$db_login, $db_pass, $db_name,$db_port);

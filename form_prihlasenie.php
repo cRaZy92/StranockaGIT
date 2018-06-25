@@ -6,8 +6,8 @@ if(isset($_SESSION['n_user']))
 {
     //hlasenie o uspesnej registracii
     echo '<div class="alert alert-success">
-<strong>Úspešne registrovaný!</strong> Môžeš sa prihlásiť.
-</div>';
+      <strong>Úspešne registrovaný!</strong> Môžeš sa prihlásiť.
+          </div>';
 }
 ?>
       <img class="mb-4" src="https://openclipart.org/download/185270/Light-Bulb-Icon.svg" alt="" width="72" height="72">

@@ -10,9 +10,9 @@
           <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="admin/todo.php">To-Do List</a>
+                    <a class="dropdown-item" href="todo.php">To-Do List</a>
                     <a class="dropdown-item  disabled" href="">Odkazy</a>
-                    <a class="dropdown-item" href="admin/db_users.php">All users</a>
+                    <a class="dropdown-item" href="db_users.php">All users</a>
                 </div>
           </li>
 

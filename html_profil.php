@@ -9,12 +9,12 @@
       <div class="text-center">
           <?php
       if($_SESSION['pohlavie'] == "žena")
-        echo '<img src="img_avatar_f.png" class="avatar img-circle img-thumbnail" alt="avatar">';
+        echo '<img src="img/img_avatar_f.png" class="avatar img-circle img-thumbnail" alt="avatar">';
         else{
             if($_SESSION['pohlavie'] == "muž")
-                echo '<img src="img_avatar_m.png" class="avatar img-circle img-thumbnail" alt="avatar">';
+                echo '<img src="img/img_avatar_m.png" class="avatar img-circle img-thumbnail" alt="avatar">';
             else
-                echo '<img src="img_avatar_i.png" class="avatar img-circle img-thumbnail" alt="avatar">';
+                echo '<img src="img/img_avatar_i.png" class="avatar img-circle img-thumbnail" alt="avatar">';
         }
         ?>
       </div></hr><br>

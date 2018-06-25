@@ -6,7 +6,7 @@ $date_u = $date_u->format('d. m. Y H:i');
 ?>
 
 <div class="media text-muted pt-3"> <!-- orámovanie celej otázky -->
-    <img src="img_avatar_m.png" alt="" class="mr-2 rounded" width="38" height="38"> <!-- možno raz obrázok uživateľa -->
+    <img src="img/img_avatar_m.png" alt="" class="mr-2 rounded" width="38" height="38"> <!-- možno raz obrázok uživateľa -->
     <form action="komentovanie.php" method="post"> <!-- začiatok formu na odoslanie ID otazky -->  
         <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
 

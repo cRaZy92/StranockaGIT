@@ -15,7 +15,7 @@ die("Chyba!");
 $titulok="Profil použivateľa";
 include "html_hlavicka.php";
 
-require "db_pripojenie.php";    
+require "db_pripojenie.php";
 $id = $_SESSION['pk_uzivatel'];
 
         $vysledok = mysqli_query($db_spojenie, "SELECT meno,priezvisko,pohlavie,adresa,telefon,dat_registracie,email,fk_mesto FROM tb_osoba WHERE pk_osoba='$id_other'");

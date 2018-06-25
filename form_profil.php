@@ -17,7 +17,8 @@
                 echo '<img src="img_avatar_i.png" class="avatar img-circle img-thumbnail" alt="avatar">';
         }
         ?>
-        <input type="file" name="img" id="file" class="inputfile"/>
+        <form class="form" action="profil_edit.php" method="post">
+        <input type="file" name="image" id="file" class="inputfile">
         <label for="file" class="btn btn-primary"> Nahrať obrázok </label>
 
       </div><br>
@@ -37,7 +38,7 @@
               
           <div class="tab-content">
             <div class="tab-pane active" id="home">
-                  <form class="form" action="profil_edit.php" method="post">
+                  
                       <div class="form-group">
                           
                           <div class="col-xs-6">

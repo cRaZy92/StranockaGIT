@@ -1,6 +1,6 @@
 <div class="media">
   <div class="media-left">
-  <a href='profil_other.php?id_uzivatel=<?php echo $id_uzivatela_k; ?>'><img src="img_avatar_m.png" class="media-object" style="width:60px"></a>
+  <a href='profil_other.php?id_uzivatel=<?php echo $id_uzivatela_k; ?>'><img src="img/img_avatar_m.png" class="media-object" style="width:60px"></a>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href='profil_other.php?id_uzivatel=<?php echo $id_uzivatela_k; ?>'>

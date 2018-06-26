@@ -8,6 +8,35 @@
 
       <div class="text-center">
           <?php
+        $nick = $_SESSION['nick'];
+        $img_path = 'images/'.$nick.'.';
+
+        if(file_exists($img_path.'png')){
+            $img_path = 'images/'.$nick.'.'.'png';
+            ?>
+            <img src=<?php echo "$img_path"; ?> class="avatar img-circle img-thumbnail" alt="avatar">
+            <?php
+            $custom_img = 1;
+        }
+
+        if (file_exists($img_path.'jpg')){
+            $img_path = 'images/'.$nick.'.'.'jpg';
+            ?>
+            <img src=<?php echo "$img_path"; ?> class="avatar img-circle img-thumbnail" alt="avatar">
+            <?php
+            $custom_img = 1;
+        }
+
+        if (file_exists($img_path.'jpeg')){
+            $img_path = 'images/'.$nick.'.'.'jpeg';
+            ?>
+            <img src=<?php echo "$img_path"; ?> class="avatar img-circle img-thumbnail" alt="avatar">
+            <?php
+            $custom_img = 1;
+        }
+
+
+        if(!isset($custom_img)){
       if($_SESSION['pohlavie'] == "žena")
         echo '<img src="img/img_avatar_f.png" class="avatar img-circle img-thumbnail" alt="avatar">';
         else{
@@ -16,7 +45,10 @@
             else
                 echo '<img src="img/img_avatar_i.png" class="avatar img-circle img-thumbnail" alt="avatar">';
         }
+    }
         ?>
+
+
       </div></hr><br>
 
         <!--  Webstránka použivateľa       

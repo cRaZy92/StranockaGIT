@@ -17,10 +17,12 @@
                 echo '<img src="img_avatar_i.png" class="avatar img-circle img-thumbnail" alt="avatar">';
         }
         ?>
-        <form class="form" action="profil_edit.php" method="post">
-        <input type="file" name="image" id="file" class="inputfile">
+        <form action = "" method = "POST" enctype = "multipart/form-data">
+        
+        <input type = "file" name = "image" >
         <label for="file" class="btn btn-primary"> Nahrať obrázok </label>
-
+        <input type = "submit" name="img">
+        </form>
       </div><br>
 
         <!--  Webstránka použivateľa       
@@ -34,7 +36,7 @@
         </div><!--/col-3-->
     	<div class="col-sm-9">
             
-
+        <form class="form" action="profil_edit.php" method="post">
               
           <div class="tab-content">
             <div class="tab-pane active" id="home">

@@ -10,12 +10,8 @@ else
     include "html_hlavicka.php";
     require "db_pripojenie.php";
 
-if (isset($_POST['ulozit_zmeny'])){
     $id = $_SESSION['pk_uzivatel'];
-
-   
-
-
+    $nick = $_SESSION['nick'];
 
     if(isset($_FILES['image'])){
         $errors= array();
@@ -23,36 +19,29 @@ if (isset($_POST['ulozit_zmeny'])){
         $file_size = $_FILES['image']['size'];
         $file_tmp = $_FILES['image']['tmp_name'];
         $file_type = $_FILES['image']['type'];
-        $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+        $tmp = explode('.', $file_name);
+        $file_ext = end($tmp);
         
-        $expensions= array("jpeg","jpg","png");
+        $expensions= array("jpeg","jpg","png"); //povolene formaty
         
         if(in_array($file_ext,$expensions)=== false){
-           $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+           $errors[]="Tento formát nie je podporovaný, prosím použite JPG, JPEG alebo PNG.";
         }
         
-        if($file_size > 2097152) {
-           $errors[]='File size must be excately 2 MB';
+        if($file_size > 2097152) {  //max velkost obrazku
+           $errors[]='Súbor je príliš veľký! Maximálne 2MB.'; 
         }
         
         if(empty($errors)==true) {
-           move_uploaded_file($file_tmp,"up_img/".$file_name);
-           echo "Success";
+           move_uploaded_file($file_tmp,"images/".$nick.".".$file_ext);  //miesto ulozenia obrazka
+           //echo "Success";
+           header('Location: profil.php');
         }else{
            print_r($errors);
         }
      }
 
-
-
-
-
-
-
-
-
-
-
+if (isset($_POST['ulozit_zmeny'])){  
 
     $sql = "SELECT 
         heslo
@@ -175,7 +164,7 @@ if(!$uprav_udaje)
     $_SESSION['telefon'] = $osobne_udaje['telefon'];
     $_SESSION['mesto'] = $riadok_mesto['mesto'];
     $_SESSION['psc'] = $riadok_mesto['psc'];
-    //header('Location: profil.php');
+    header('Location: profil.php');
    // echo '<script> location.replace("profil.php"); </script>';
 
     

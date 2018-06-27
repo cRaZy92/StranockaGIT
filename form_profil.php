@@ -7,22 +7,64 @@
               
 
       <div class="text-center">
+
       <?php
+        $nick = $_SESSION['nick'];
+        $img_path = 'images/'.$nick.'.';
+
+        if(file_exists($img_path.'png')){
+            $img_path = 'images/'.$nick.'.'.'png';
+            ?>
+            <img src=<?php echo "$img_path"; ?> class="avatar img-circle img-thumbnail" alt="avatar">
+            <?php
+            $custom_img = 1;
+        }
+
+        if (file_exists($img_path.'jpg')){
+            $img_path = 'images/'.$nick.'.'.'jpg';
+            ?>
+            <img src=<?php echo "$img_path"; ?> class="avatar img-circle img-thumbnail" alt="avatar">
+            <?php
+            $custom_img = 1;
+        }
+
+        if (file_exists($img_path.'jpeg')){
+            $img_path = 'images/'.$nick.'.'.'jpeg';
+            ?>
+            <img src=<?php echo "$img_path"; ?> class="avatar img-circle img-thumbnail" alt="avatar">
+            <?php
+            $custom_img = 1;
+        }
+
+        //ak nie je uploadnuty vlastny obrazok uzivatela
+        if(!isset($custom_img)){
       if($_SESSION['pohlavie'] == "žena")
-        echo '<img src="img_avatar_f.png" class="avatar img-circle img-thumbnail" alt="avatar">';
+        echo '<img src="img/img_avatar_f.png" class="avatar img-circle img-thumbnail" alt="avatar">';
         else{
             if($_SESSION['pohlavie'] == "muž")
-                echo '<img src="img_avatar_m.png" class="avatar img-circle img-thumbnail" alt="avatar">';
+                echo '<img src="img/img_avatar_m.png" class="avatar img-circle img-thumbnail" alt="avatar">';
             else
-                echo '<img src="img_avatar_i.png" class="avatar img-circle img-thumbnail" alt="avatar">';
+                echo '<img src="img/img_avatar_i.png" class="avatar img-circle img-thumbnail" alt="avatar">';
         }
+    }
         ?>
         <form action = "" method = "POST" enctype = "multipart/form-data">
         
-        <input type = "file" name = "image" >
+        <input type="file" name="image" id="file" class="inputfile">
+        
         <label for="file" class="btn btn-primary"> Nahrať obrázok </label>
-        <input type = "submit" name="img">
+        <input type="submit" class="btn btn-success" name="img" value="Odoslať">
         </form>
+        <?php
+        if(isset($error_img_ext)){
+            echo "Tento formát nie je podporovaný, prosím použite JPG, JPEG alebo PNG.";
+        }
+
+        if(isset($error_img_size)){
+            echo "Súbor je príliš veľký! Maximálne 2MB.";
+        }
+
+        ?>
       </div><br>
 
         <!--  Webstránka použivateľa       

@@ -28,7 +28,7 @@
         </ul>
 
         <div class="nav-item dropdown" id="user_menu">
-                <a class="nav-link dropdown-toggle text-info" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span  style="font-size:18px"><i class="fas fa-user"></i>  <?php echo $_SESSION['nick']; ?></span></a>
+        <button class="btn btn-link dropdown-toggle" type="button" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span  style="font-size:18px"><i class="fas fa-user"></i>  <?php echo $_SESSION['nick']; ?></span></button>
                 <div class="dropdown-menu" aria-labelledby="dropdown02">
                     <a class="dropdown-item" href="profil.php"><i class="far fa-address-card"></i> Zobraziť profil</a>
                     <div class="dropdown-divider"></div>

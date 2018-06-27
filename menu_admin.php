@@ -7,8 +7,10 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             
+        <li class="divider-vertical"></li>
+
           <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
+          <button class="btn btn-link dropdown-toggle text-white" type="button" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span  style="font-size:18px"><i class="fas fa-user-tie"></i> Admin</span></button>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                     <a class="dropdown-item" href="todo.php">To-Do List</a>
                     <a class="dropdown-item  disabled" href="">Odkazy</a>
@@ -17,25 +19,25 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="db_ucivo.php">Učivo</a>
+            <a class="nav-link text-light" href="db_ucivo.php"><i class="fas fa-code"></i> Učivo</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="db_odkaz.php">Zanechaj odkaz</a>
-          </li>
+          <li class="divider-vertical"></li>
 
           <li class="nav-item">
-            <a class="nav-link" href="db_forum.php">Fórum</a>
+            <a class="nav-link text-light" href="db_odkaz.php"><i class="far fa-envelope"></i> Zanechaj odkaz</a>
           </li>
+          
+          <li class="divider-vertical"></li>
 
           <li class="nav-item">
-            <a class="nav-link" href="db_odhlasenie.php">Odhlásiť</a>
+            <a class="nav-link text-light" href="db_forum.php"><i class="fab fa-stack-exchange"></i> Fórum</a>
           </li>
           
         </ul>
- 
+
         <div class="nav-item dropdown" id="user_menu">
-                <a class="nav-link dropdown-toggle text-info" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span  style="font-size:18px"><i class="fas fa-user"></i>  <?php echo $_SESSION['nick']; ?></span></a>
+        <button class="btn btn-link dropdown-toggle" type="button" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span  style="font-size:18px"><i class="fas fa-user"></i>  <?php echo $_SESSION['nick']; ?></span></button>
                 <div class="dropdown-menu" aria-labelledby="dropdown02">
                     <a class="dropdown-item" href="profil.php"><i class="far fa-address-card"></i> Zobraziť profil</a>
                     <div class="dropdown-divider"></div>
@@ -43,4 +45,4 @@
                 </div>
         </div>
       </div>
-    </nav>
+</nav>

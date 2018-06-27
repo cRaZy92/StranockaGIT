@@ -25,19 +25,20 @@ else
         $expensions= array("jpeg","jpg","png"); //povolene formaty
         
         if(in_array($file_ext,$expensions)=== false){
-           $errors[]="Tento formát nie je podporovaný, prosím použite JPG, JPEG alebo PNG.";
+            $error_img_ext=1;
+            $errors[]="Tento formát nie je podporovaný, prosím použite JPG, JPEG alebo PNG.";
         }
         
         if($file_size > 2097152) {  //max velkost obrazku
-           $errors[]='Súbor je príliš veľký! Maximálne 2MB.'; 
+            $error_img_size=1;
+            $errors[]='Súbor je príliš veľký! Maximálne 2MB.';
         }
         
         if(empty($errors)==true) {
            move_uploaded_file($file_tmp,"images/".$nick.".".$file_ext);  //miesto ulozenia obrazka
-           //echo "Success";
            header('Location: profil.php');
         }else{
-           print_r($errors);
+           //print_r($errors);
         }
      }
 
